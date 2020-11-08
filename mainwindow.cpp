@@ -2,8 +2,6 @@
 #include "ui_mainwindow.h"
 #include "moradores.h"
 
-
-
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -38,7 +36,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actAd_Morador_triggered()
 {
-
     /*QMessageBox Mensagem;
     Mensagem.setWindowTitle( "Ola" );
     Mensagem.setInformativeText( "Testando" );
