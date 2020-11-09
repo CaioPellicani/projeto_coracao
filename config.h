@@ -13,13 +13,14 @@
 #include <QToolButton>
 #include <QLocale>
 
-enum valorCheckBox{ desmarcado, parcialMarcado, marcado };
+enum { desmarcado, parcialMarcado, marcado };
 
-struct morador{
+typedef struct{
     int marcacao;
     QString nro;
     QString nome;
     float saldo;
     float contribuicao;
-};
+} morador;
+
 #endif // CONFIG_H

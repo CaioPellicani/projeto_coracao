@@ -5,9 +5,7 @@
 
 class Moradores : public QObject
 {
-    //Q_OBJECT
 public:
-    //Moradores( QObject *parent = nullptr );
     QVector<QHBoxLayout*> moradores;
     QWidget *resul = new QWidget();
     QVBoxLayout *vertical = new QVBoxLayout();
@@ -18,7 +16,7 @@ public:
     QWidget* getMoradores();
 
 private slots:
-    void slot( );
+
 };
 
 #endif // MORADORES_H

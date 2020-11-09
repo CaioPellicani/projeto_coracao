@@ -46,11 +46,12 @@ void Moradores::addUiMorador( morador* morador ){
     QCheckBox* cbxContribuindo = new QCheckBox( morador->nro );
     QLabel* lblNome = new QLabel( morador->nome );
     QLabel* lblSaldo = new QLabel( QLocale().toCurrencyString( morador->saldo ) );
-    Botao *btnMudarCotribuicao = new Botao();
+    Botao *btnMudarCotribuicao = new Botao( morador );
     QLabel* lblContribuicao = new QLabel( QLocale().toCurrencyString( morador->contribuicao ) );
 
     cbxContribuindo->setCheckState( Qt::CheckState( morador->marcacao ) );
-    connect(cbxContribuindo, SIGNAL( stateChanged(int) ), btnMudarCotribuicao, SLOT( checkModificado(int) ) );
+    connect(cbxContribuindo, SIGNAL( stateChanged(int) ), btnMudarCotribuicao, SLOT( desabilitar(int) ) );
+    connect(btnMudarCotribuicao,SIGNAL( clicked() ), btnMudarCotribuicao, SLOT( addContribuicao( ) ) );
 
     layout->addWidget( cbxContribuindo );
     layout->addSpacerItem( espaco );
@@ -71,7 +72,4 @@ void Moradores::addUiMorador( morador* morador ){
     moradores.push_back( layout );
 }
 
-void Moradores::slot(){
-   qDebug() << "teste";
-}
 

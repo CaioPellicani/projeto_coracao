@@ -1,22 +1,23 @@
 #include "botao.h"
+#include "tela_contribuicao.h"
 
-Botao::Botao()
-{
-
+Botao::Botao( morador* temp_morador ){
+    this_morador = temp_morador;
 }
 
-void Botao::teste(){
-    qDebug() << "teste";
-}
-
-void Botao::checkModificado(int sinal){
+void Botao::desabilitar(int sinal){
 
     if( sinal == marcado ){
-        //qDebug() << "marcado";
         this->setEnabled( true );
     }
     else if( sinal == desmarcado ){
-        //qDebug() << "marcado";
         this->setEnabled( false );
     }
+}
+
+void Botao::addContribuicao( ){
+    tela_contribuicao tela( this );
+    tela.setMorador( this_morador );
+    tela.setWindowTitle( this_morador->nome );
+    tela.exec();
 }

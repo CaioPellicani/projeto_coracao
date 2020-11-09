@@ -6,12 +6,21 @@
 
 class Botao : public QToolButton{
     Q_OBJECT
+private:
+    morador* this_morador;
 public:
-    Botao();
-    void teste();
+    Botao( morador* temp_morador );
 
 public Q_SLOTS:
-    void checkModificado(int sinal);
+    void desabilitar(int sinal);
+    void addContribuicao();
+    //void addContribuicao( morador* morador);
+
+Q_SIGNALS:
 };
+
+
+
+
 
 #endif // BOTAO_H

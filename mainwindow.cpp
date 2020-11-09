@@ -2,25 +2,19 @@
 #include "ui_mainwindow.h"
 #include "moradores.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
-{
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
 
     QVector<morador*> casa;
-    casa.push_back( new morador );
-    casa[0]->marcacao = desmarcado;
-    casa[0]->nro = "64";
-    casa[0]->nome = "P´-Ga-T-Ta";
-    casa[0]->saldo = 0.00;
-    casa[0]->contribuicao = 700.00;
 
-    casa.push_back( new morador );
-    casa[1]->marcacao = marcado;
-    casa[1]->nro = "65";
-    casa[1]->nome = "Fófatóba";
-    casa[1]->saldo = -780.00;
-    casa[1]->contribuicao = 0.00;
-
+    for( int i = 0; i < 5; i++ ){
+        casa.push_back( new morador );
+        casa[i]->marcacao = marcado;
+        casa[i]->nro = QString::number( 80 + i );
+        casa[i]->nome = "Bixo" + QString::number( i + 1 );
+        casa[i]->contribuicao = 700.00;
+        casa[i]->saldo = -600.00 + casa[i]->contribuicao;
+    }
 
     Moradores *teste = new Moradores();
     teste->gerarCasa( casa );
