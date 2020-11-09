@@ -21,9 +21,9 @@ public:
     ~tela_contribuicao();
 
 private slots:
-    void on_buttonBox_accepted();
-
+    void aceitado();
     void on_buttonBox_rejected();
+
 
 private:
     Ui::tela_contribuicao *ui;
