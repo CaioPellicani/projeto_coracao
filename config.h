@@ -1,5 +1,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
+#include <QValidator>
 #include <QObject>
 #include <QMessageBox>
 #include <QDebug>
@@ -12,6 +13,7 @@
 #include <QSpacerItem>
 #include <QToolButton>
 #include <QLocale>
+#include <QDateTime>
 
 enum { desmarcado, parcialMarcado, marcado };
 

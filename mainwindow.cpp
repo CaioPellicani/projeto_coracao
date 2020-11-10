@@ -28,32 +28,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_actAd_Morador_triggered()
-{
-    /*QMessageBox Mensagem;
-    Mensagem.setWindowTitle( "Ola" );
-    Mensagem.setInformativeText( "Testando" );
-    Mensagem.setText( "Ola, estou treinando" );
-    Mensagem.exec();*/
-
-    //QMessageBox::information(this, "Ola", "Aprendendo");
-    //QMessageBox::question(this,"Ola", "Aprendendo");
-    QMessageBox msgBox;
-    msgBox.setText(tr("Confirm?"));
-    //msgBox.addButton(tr("Sim"), QMessageBox::YesRole);
-    msgBox.addButton(tr("Não"), QMessageBox::NoRole);
-    msgBox.defaultButton();
-    msgBox.setDefaultButton( msgBox.addButton(tr("Sim"), QMessageBox::YesRole) );
-
-    int i = msgBox.exec();
-
-    if( i == QMessageBox::Yes ){
-        QMessageBox::information(this,"Ola", "Aprendendo");
-    }
-    else{
-        QMessageBox::information(this,"Triste", tr("Sad"), QMessageBox::Yes);
-    }
-
+void MainWindow::on_actAd_Morador_triggered(){
 }
 
 void MainWindow::on_actionFechar_triggered()
@@ -62,7 +37,3 @@ void MainWindow::on_actionFechar_triggered()
     QApplication::exit();
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-
-}
