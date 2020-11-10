@@ -3,8 +3,12 @@
 #include "config.h"
 #include "botao.h"
 
-class Moradores : public QObject
-{
+class Moradores : public QObject{
+
+private:
+    QSpacerItem *espaco( int largura );
+
+
 public:
     QVector<QHBoxLayout*> moradores;
     QWidget *resul = new QWidget();
@@ -15,8 +19,7 @@ public:
     void addUiMorador( morador* morador );
     QWidget* getMoradores();
 
-private slots:
-
+private Q_SLOTS:
 };
 
 #endif // MORADORES_H

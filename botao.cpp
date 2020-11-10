@@ -1,23 +1,27 @@
 #include "botao.h"
-#include "tela_contribuicao.h"
+#include "frmcontribuicao.h"
 
-Botao::Botao( morador* temp_morador ){
+Botao::Botao( QString texto, morador* temp_morador ){
+    this->setText( texto );
     this_morador = temp_morador;
 }
 
 void Botao::desabilitar(int sinal){
 
-    if( sinal == marcado ){
+    if( sinal == MARCADO ){
         this->setEnabled( true );
     }
-    else if( sinal == desmarcado ){
+    else if( sinal == DESMARCADO ){
         this->setEnabled( false );
     }
 }
 
 void Botao::addContribuicao( ){
-    tela_contribuicao tela( this );
+    frmContribuicao tela( this );
     tela.setMorador( this_morador );
     tela.setWindowTitle( this_morador->nome );
     tela.exec();
+    emit atualizarSaldo( QLocale().toCurrencyString( this_morador->saldo ) );
+    emit atualizarContribuicao( QLocale().toCurrencyString( this_morador->contribuicao ) );
+    qDebug() << this_morador->nome <<"\nsaldo: " << this_morador->saldo << "\ncontribuicao: " << this_morador->contribuicao;
 }

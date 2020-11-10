@@ -9,14 +9,15 @@ class Botao : public QToolButton{
 private:
     morador* this_morador;
 public:
-    Botao( morador* temp_morador );
+    Botao( QString texto, morador* temp_morador );
 
 public Q_SLOTS:
     void desabilitar(int sinal);
     void addContribuicao();
-    //void addContribuicao( morador* morador);
 
 Q_SIGNALS:
+    void atualizarSaldo( QString novoSaldo );
+    void atualizarContribuicao( QString novaContribuicao );
 };
 
 

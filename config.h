@@ -15,7 +15,7 @@
 #include <QLocale>
 #include <QDateTime>
 
-enum { desmarcado, parcialMarcado, marcado };
+enum { DESMARCADO, PARCIAL_MARCADO, MARCADO };
 
 typedef struct{
     int marcacao;

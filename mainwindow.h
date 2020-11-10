@@ -20,12 +20,6 @@ private:
 
 private slots:
 
-    void on_actAd_Morador_triggered();
-
-    void on_actionFechar_triggered();
-
-    void on_pushButton_clicked();
-
 private:
     Ui::MainWindow *ui;
 };
