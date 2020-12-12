@@ -1,11 +1,11 @@
-#include "mainwindow.h"
+#include "frmprincipal.h"
+
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
-
-    MainWindow w;
+    QApplication a(argc, argv);
+    frmPrincipal w;
     w.show();
-    return app.exec();
+    return a.exec();
 }
