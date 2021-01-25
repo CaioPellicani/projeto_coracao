@@ -1,8 +1,11 @@
 #ifndef FRMCONTRIBUICAO_H
 #define FRMCONTRIBUICAO_H
 
-#include <QDialog>
+#include <logMorador.h>
+#include "frmcontribuicao.h"
 #include "config.h"
+
+#include "ui_frmcontribuicao.h"
 
 namespace Ui {
 class frmContribuicao;
@@ -21,7 +24,7 @@ private:
 
     QVector<dados*> listaValores;
 
-    morador* this_morador;
+    logMorador* this_morador;
 
     void carregarTabela();
 
@@ -33,7 +36,7 @@ public:
     explicit frmContribuicao(QWidget *parent = nullptr);
     ~frmContribuicao();
 
-    void setMorador( morador* temp_morador );
+    void setMorador( logMorador* temp_morador );
 
 private slots:
     void aceitado();

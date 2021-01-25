@@ -1,6 +1,5 @@
 #include "frmcontribuicao.h"
-#include "ui_frmcontribuicao.h"
-#include <QHeaderView>
+
 
 frmContribuicao::frmContribuicao(QWidget *parent) :QDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
@@ -14,7 +13,7 @@ frmContribuicao::~frmContribuicao(){
     delete ui;
 }
 
-void frmContribuicao::setMorador(morador *temp_morador){
+void frmContribuicao::setMorador(logMorador *temp_morador){
     this_morador = temp_morador;
 }
 

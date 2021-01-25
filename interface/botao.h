@@ -1,15 +1,15 @@
 #ifndef BOTAO_H
 #define BOTAO_H
 #include "config.h"
-#include <QToolButton>
-#include <QObject>
+#include "frmcontribuicao.h"
+
 
 class Botao : public QToolButton{
     Q_OBJECT
 private:
-    morador* this_morador;
+    logMorador* this_morador;
 public:
-    Botao( QString texto, morador* temp_morador );
+    Botao( QString texto, logMorador* temp_morador );
 
 public Q_SLOTS:
     void desabilitar(int sinal);

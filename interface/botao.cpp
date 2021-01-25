@@ -1,7 +1,6 @@
 #include "botao.h"
-#include "frmcontribuicao.h"
 
-Botao::Botao( QString texto, morador* temp_morador ){
+Botao::Botao( QString texto, logMorador* temp_morador ){
     this->setText( texto );
     this_morador = temp_morador;
 }

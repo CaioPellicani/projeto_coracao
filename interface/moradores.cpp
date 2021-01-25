@@ -8,7 +8,7 @@ Moradores::Moradores(){
     layout->addWidget( new QLabel( "Nome" ) );
     layout->addWidget( new QLabel( "Saldo" ) );
     layout->addWidget( new QLabel( "Constribuição" ) );
-        layout->addSpacerItem( espaco( 30 ) );
+    layout->addSpacerItem( espaco( 30 ) );
     vertical->addLayout( layout );
 }
 
@@ -21,13 +21,13 @@ QWidget* Moradores::getMoradores(){
     return resul;
 }
 
-void Moradores::gerarCasa( QVector<morador*> casa ){
+void Moradores::gerarCasa( QVector<logMorador*> casa ){
     for( int i = 0; i < casa.length(); i++ ) {
         this->addUiMorador( casa[i] );
     }
 }
 
-void Moradores::addUiMorador( morador* morador ){
+void Moradores::addUiMorador( logMorador* morador ){
     QHBoxLayout *layout = new QHBoxLayout();
     QCheckBox* cbxContribuindo = new QCheckBox( );
     QLabel* lblNome = new QLabel( morador->nro + " - " + morador->nome );

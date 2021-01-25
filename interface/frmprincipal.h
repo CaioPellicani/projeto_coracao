@@ -2,6 +2,7 @@
 #define FRMPRINCIPAL_H
 
 #include <QMainWindow>
+#include <logMorador.h>
 #include "config.h"
 
 QT_BEGIN_NAMESPACE
