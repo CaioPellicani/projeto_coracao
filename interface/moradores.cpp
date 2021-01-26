@@ -30,12 +30,12 @@ void Moradores::gerarCasa( QVector<logMorador*> casa ){
 void Moradores::addUiMorador( logMorador* morador ){
     QHBoxLayout *layout = new QHBoxLayout();
     QCheckBox* cbxContribuindo = new QCheckBox( );
-    QLabel* lblNome = new QLabel( morador->nro + " - " + morador->nome );
-    QLabel* lblSaldo = new QLabel( QLocale().toCurrencyString( morador->saldo ) );
+    QLabel* lblNome = new QLabel( morador->getNro() + " - " + morador->getNome() );
+    QLabel* lblSaldo = new QLabel( QLocale().toCurrencyString( morador->getSaldo() ) );
     Botao *btnMudarCotribuicao = new Botao( "+", morador );
-    QLabel* lblContribuicao = new QLabel( QLocale().toCurrencyString( morador->contribuicao ) );
+    QLabel* lblContribuicao = new QLabel( QLocale().toCurrencyString( morador->getContribuicao() ) );
 
-    cbxContribuindo->setCheckState( Qt::CheckState( morador->marcacao ) );
+    cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
     cbxContribuindo->setFixedWidth( 20 );
 
     layout->addWidget( cbxContribuindo );
@@ -43,7 +43,7 @@ void Moradores::addUiMorador( logMorador* morador ){
     layout->addWidget( lblSaldo );
 
     //btnMudarCotribuicao->setText("+");
-    btnMudarCotribuicao->setEnabled( morador->marcacao );
+    btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
     layout->addWidget(btnMudarCotribuicao);
 
     layout->addWidget( lblContribuicao );

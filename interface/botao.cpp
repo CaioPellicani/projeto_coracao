@@ -18,9 +18,9 @@ void Botao::desabilitar(int sinal){
 void Botao::addContribuicao( ){
     frmContribuicao tela( this );
     tela.setMorador( this_morador );
-    tela.setWindowTitle( this_morador->nome );
+    tela.setWindowTitle( this_morador->getNome() );
     tela.exec();
-    emit atualizarSaldo( QLocale().toCurrencyString( this_morador->saldo ) );
-    emit atualizarContribuicao( QLocale().toCurrencyString( this_morador->contribuicao ) );
-    qDebug() << this_morador->nome <<"\nsaldo: " << this_morador->saldo << "\ncontribuicao: " << this_morador->contribuicao;
+    emit atualizarSaldo( QLocale().toCurrencyString( this_morador->getSaldo() ) );
+    emit atualizarContribuicao( QLocale().toCurrencyString( this_morador->getContribuicao() ) );
+    qDebug() << this_morador->getNome() <<"\nsaldo: " << this_morador->getSaldo() << "\ncontribuicao: " << this_morador->getContribuicao();
 }

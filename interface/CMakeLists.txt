@@ -21,7 +21,6 @@ add_library(${PROJECT_NAME} SHARED
     botao.h botao.cpp
 )
 
-
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
     PRIVATE config

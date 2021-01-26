@@ -18,15 +18,15 @@ void frmContribuicao::setMorador(logMorador *temp_morador){
 }
 
 void frmContribuicao::aceitado(){
-    if( QMessageBox::question( this, this_morador->nome, "Tem Certeza?" ) == QMessageBox::Yes ){
+    if( QMessageBox::question( this, this_morador->getNome(), "Tem Certeza?" ) == QMessageBox::Yes ){
         //DB Insert
         qDebug() << "Sim";
         float resul = 0;
         for( int i = 0; i < listaValores.length(); i++ ){
            resul +=  listaValores[i]->valor;
         }
-        this_morador->contribuicao +=  resul;
-        this_morador->saldo += resul;
+        this_morador->setContribuicao( this_morador->getContribuicao() + resul );
+        this_morador->setSaldo( this_morador->getSaldo() + resul );
         accept();
     } else{
         qDebug() << "Não";
@@ -34,7 +34,7 @@ void frmContribuicao::aceitado(){
 }
 
 void frmContribuicao::rejeitado(){
-    qDebug() << this_morador->nro;
+    qDebug() << this_morador->getNro();
     reject();
 }
 

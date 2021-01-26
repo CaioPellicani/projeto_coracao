@@ -15,7 +15,6 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 set( sources
-    t2.h t2.cpp
     logMorador.h logMorador.cpp
 )
 
