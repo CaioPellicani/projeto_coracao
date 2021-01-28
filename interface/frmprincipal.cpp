@@ -14,6 +14,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
         casa[i]->setNro( QString::number( 80 + i ) );
         casa[i]->setNome( "Bixo" + QString::number( i + 1 ) );
         casa[i]->setContribuicao( 700.00 );
+        casa[i]->setCustoMes( 600.00 );
         casa[i]->setSaldo( casa[i]->getSaldo() -600.00 + casa[i]->getContribuicao() );
     }//camada DB
 

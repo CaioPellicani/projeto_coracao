@@ -11,6 +11,7 @@ private:
     QString nro;
     QString nome;
     float contribuicao;
+    float custoMes;
     float saldo;
 
 public:
@@ -27,6 +28,9 @@ public:
 
     float getContribuicao(){ return contribuicao; }
     void setContribuicao( float value ){ this->contribuicao = value; }
+
+    float getCustoMes(){ return custoMes; }
+    void setCustoMes( float value ){ this->custoMes = value; }
 
     float getSaldo(){ return saldo; }
     void setSaldo( float value ){ this->saldo = value; }
