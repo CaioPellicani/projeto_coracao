@@ -33,10 +33,8 @@ private:
     void inserirValorTabela( QString nome, QString data, QString hora );
 
 public:
-    explicit frmContribuicao(QWidget *parent = nullptr);
+    explicit frmContribuicao( logMorador* temp_morador, QWidget *parent = nullptr );
     ~frmContribuicao();
-
-    void setMorador( logMorador* temp_morador );
 
 private slots:
     void aceitado();

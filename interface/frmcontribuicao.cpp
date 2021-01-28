@@ -1,20 +1,19 @@
 #include "frmcontribuicao.h"
 
 
-frmContribuicao::frmContribuicao(QWidget *parent) :QDialog(parent),ui(new Ui::frmContribuicao){
+frmContribuicao::frmContribuicao(logMorador* temp_morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
+    this_morador = temp_morador;
+
     QObject::connect(ui->btnConfirmar, SIGNAL(accepted()), this, SLOT(aceitado()));
     QObject::connect(ui->btnConfirmar, SIGNAL(rejected()), this, SLOT(rejeitado()));
 
     this->carregarTabela();
+
 }
 
 frmContribuicao::~frmContribuicao(){
     delete ui;
-}
-
-void frmContribuicao::setMorador(logMorador *temp_morador){
-    this_morador = temp_morador;
 }
 
 void frmContribuicao::aceitado(){
@@ -25,8 +24,8 @@ void frmContribuicao::aceitado(){
         for( int i = 0; i < listaValores.length(); i++ ){
            resul +=  listaValores[i]->valor;
         }
-        this_morador->setContribuicao( this_morador->getContribuicao() + resul );
-        this_morador->setSaldo( this_morador->getSaldo() + resul );
+        this_morador->addContribuicao( resul );
+        //this_morador->addSaldo( resul );
         accept();
     } else{
         qDebug() << "Não";
@@ -43,7 +42,7 @@ void frmContribuicao::carregarTabela(){\
     ui->tblValores->setRowCount( 0 );
     //while( true ) {
         //DADOS DB
-        inserirValorTabela( "ValoresDB", "ValoresDB", "ValoresDB" );
+        this->inserirValorTabela( "ValoresDB", "ValoresDB", "ValoresDB" );
     //}
 }
 

@@ -28,7 +28,7 @@ void Moradores::addUiMorador( logMorador* morador ){
     lytGeral->addWidget( lblNome, rowLytGeral, NOME );
     
     QLabel* lblSaldo = new QLabel();
-    lblSaldo->setText( QLocale().toCurrencyString( morador->getSaldo() ) );
+    lblSaldo->setText( morador->getSaldoString() );
     lytGeral->addWidget( lblSaldo, rowLytGeral, SALDO );
 
     Botao *btnMudarCotribuicao = new Botao( "+", morador );
@@ -36,7 +36,7 @@ void Moradores::addUiMorador( logMorador* morador ){
     lytGeral->addWidget(btnMudarCotribuicao, rowLytGeral, MUDAR_CONTRIBUICAO);
 
     QLabel* lblContribuicao = new QLabel();
-    lblContribuicao->setText( QLocale().toCurrencyString( morador->getContribuicao() ) );
+    lblContribuicao->setText( morador->getContribuicaoString() );
     lytGeral->addWidget( lblContribuicao, rowLytGeral, CONTRIBUICAO );
 
     connect( cbxContribuindo,     SIGNAL( stateChanged(int) ),                btnMudarCotribuicao, SLOT( desabilitar( int ) ) );

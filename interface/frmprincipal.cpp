@@ -13,15 +13,13 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
         casa[i]->setMarcacao( MARCADO );
         casa[i]->setNro( QString::number( 80 + i ) );
         casa[i]->setNome( "Bixo" + QString::number( i + 1 ) );
-        casa[i]->setContribuicao( 700.00 );
+        casa[i]->addContribuicao( 700.00 );
         casa[i]->setCustoMes( 600.00 );
-        casa[i]->setSaldo( casa[i]->getSaldo() -600.00 + casa[i]->getContribuicao() );
+        //casa[i]->setSaldo( casa[i]->getSaldo() + casa[i]->getContribuicao() -600.00 );
     }//camada DB
 
     Moradores *uiListaMoradores = new Moradores( casa );
-    //uiListaMoradores->gerarCasa( casa );
-
-    ui->scrollArea->setWidget( uiListaMoradores->getMoradores() );
+    ui->areaMoradores->setWidget( uiListaMoradores->getMoradores() );
 }
 
 frmPrincipal::~frmPrincipal()

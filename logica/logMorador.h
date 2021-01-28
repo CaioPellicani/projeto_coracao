@@ -9,9 +9,9 @@ private:
     int marcacao;
     QString nro;
     QString nome;
-    float contribuicao;
-    float custoMes;
-    float saldo;
+    float contribuicao = 0;
+    float custoMes = 0;
+    float saldoMesAnterior = 0;
 
 public:
     logMorador();
@@ -26,14 +26,15 @@ public:
     void setNome( QString value ){ this->nome = value; }
 
     float getContribuicao(){ return contribuicao; }
-    void setContribuicao( float value ){ this->contribuicao = value; }
+    QString getContribuicaoString(){ return QLocale().toCurrencyString( contribuicao ); }
+    void addContribuicao( float value ){ this->contribuicao += value; }
 
     float getCustoMes(){ return custoMes; }
+    QString getCustoMesString(){ return QLocale().toCurrencyString( custoMes ); }
     void setCustoMes( float value ){ this->custoMes = value; }
 
-    float getSaldo(){ return saldo; }
-    void setSaldo( float value ){ this->saldo = value; }
-
+    float getSaldo(){ return contribuicao - custoMes + saldoMesAnterior; }
+    QString getSaldoString(){ return QLocale().toCurrencyString( contribuicao - custoMes + saldoMesAnterior ); }
 };
 
 #endif // LOGMORADORES_H

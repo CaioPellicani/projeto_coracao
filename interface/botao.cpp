@@ -16,11 +16,12 @@ void Botao::desabilitar(int sinal){
 }
 
 void Botao::addContribuicao( ){
-    frmContribuicao tela( this );
-    tela.setMorador( this_morador );
+    frmContribuicao tela( this_morador, this );
     tela.setWindowTitle( this_morador->getNome() );
     tela.exec();
-    emit atualizarSaldo( QLocale().toCurrencyString( this_morador->getSaldo() ) );
-    emit atualizarContribuicao( QLocale().toCurrencyString( this_morador->getContribuicao() ) );
-    qDebug() << this_morador->getNome() <<"\nsaldo: " << this_morador->getSaldo() << "\ncontribuicao: " << this_morador->getContribuicao();
+
+    emit atualizarSaldo( this_morador->getSaldoString() );
+    emit atualizarContribuicao( this_morador->getContribuicaoString() );
+    
+    qDebug() << this_morador->getNome() <<"\nsaldo: " << this_morador->getSaldoString() << "\ncontribuicao: " << this_morador->getContribuicaoString();
 }
