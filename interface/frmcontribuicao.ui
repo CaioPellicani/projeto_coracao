@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>303</height>
+    <width>595</width>
+    <height>515</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,36 +19,74 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetNoConstraint</enum>
-     </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <widget class="QDoubleSpinBox" name="dspValor">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::NoButtons</enum>
-       </property>
-       <property name="prefix">
-        <string notr="true"/>
-       </property>
-       <property name="minimum">
-        <double>-999999999.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>999999999.000000000000000</double>
-       </property>
-       <property name="value">
-        <double>0.000000000000000</double>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Valor</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::AutoText</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Obs</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QDoubleSpinBox" name="dspValor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="prefix">
+          <string notr="true"/>
+         </property>
+         <property name="minimum">
+          <double>-999999999.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>999999999.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>0.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="txtObs"/>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QPushButton" name="btnInserirValor">
@@ -63,22 +101,9 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="btnRetirarValor">
-       <property name="maximumSize">
-        <size>
-         <width>30</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>-</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
-   <item>
+   <item row="1" column="0">
     <widget class="QTableWidget" name="tblValores">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -108,7 +133,7 @@
       <enum>QAbstractItemView::SelectRows</enum>
      </property>
      <property name="columnCount">
-      <number>3</number>
+      <number>4</number>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>115</number>
@@ -131,9 +156,14 @@
        <string>Hora</string>
       </property>
      </column>
+     <column>
+      <property name="text">
+       <string>Obs</string>
+      </property>
+     </column>
     </widget>
    </item>
-   <item>
+   <item row="2" column="0">
     <widget class="QDialogButtonBox" name="btnConfirmar">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
@@ -142,6 +172,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>dspValor</tabstop>
+  <tabstop>txtObs</tabstop>
+  <tabstop>btnInserirValor</tabstop>
+  <tabstop>tblValores</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

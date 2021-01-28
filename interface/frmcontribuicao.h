@@ -15,11 +15,12 @@ class frmContribuicao : public QDialog
 {
     Q_OBJECT
 private:
-    enum{ VALOR, DATA, HORA };
-    enum{ INSERIR, RETIRAR };
+    enum{ VALOR, DATA, HORA, OBS };
+
     typedef struct{
         float valor;
         QDateTime dataHora;
+        QString obs;
     }dados;
 
     QVector<dados*> listaValores;
@@ -28,9 +29,11 @@ private:
 
     void carregarTabela();
 
-    void inserirValorLista( int tipo );
+    void inserirValorLista();
 
-    void inserirValorTabela( QString nome, QString data, QString hora );
+    void inserirValorTabela( QString nome, QString data, QString hora, QString obs );
+
+    void conectar();
 
 public:
     explicit frmContribuicao( logMorador* temp_morador, QWidget *parent = nullptr );
@@ -38,12 +41,8 @@ public:
 
 private slots:
     void aceitado();
-
     void rejeitado();
-
     void on_btnInserirValor_clicked();
-
-    void on_btnRetirarValor_clicked();
 
 private:
     Ui::frmContribuicao *ui;
