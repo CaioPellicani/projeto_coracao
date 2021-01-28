@@ -14,20 +14,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
-
+add_subdirectory( config )
 add_subdirectory( logica )
 add_subdirectory( interface )
-add_subdirectory( config )
+
 
 add_executable(${PROJECT_NAME}
     main.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
-    PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    PUBLIC Qt${QT_VERSION_MAJOR}::Widgets
     PUBLIC config
-    PRIVATE interface
-    PRIVATE logica
+    PUBLIC interface
+    PUBLIC logica
 )
 
 

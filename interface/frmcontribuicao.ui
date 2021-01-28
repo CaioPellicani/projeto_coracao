@@ -33,8 +33,20 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="prefix">
+        <string notr="true"/>
+       </property>
+       <property name="minimum">
+        <double>-999999999.000000000000000</double>
+       </property>
        <property name="maximum">
         <double>999999999.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
        </property>
       </widget>
      </item>

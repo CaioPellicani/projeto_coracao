@@ -1,24 +1,12 @@
 #include "moradores.h"
 
-//Moradores::Moradores( QObject *parent) : QObject(parent){
+Moradores::Moradores( QVector<logMorador*> casa ){
+    rowLytGeral = lytGeral->rowCount();
+    lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
+    lytGeral->addWidget( new QLabel( "Saldo" ), rowLytGeral, SALDO );
+    lytGeral->addWidget( new QLabel( "Contribuição" ), rowLytGeral, CONTRIBUICAO );
 
-Moradores::Moradores(){
-    QHBoxLayout *layout = new QHBoxLayout();
-    layout->addSpacerItem( espaco( 30 ) );
-    layout->addWidget( new QLabel( "Nome" ) );
-    layout->addWidget( new QLabel( "Saldo" ) );
-    layout->addWidget( new QLabel( "Constribuição" ) );
-    layout->addSpacerItem( espaco( 30 ) );
-    vertical->addLayout( layout );
-}
-
-
-QWidget* Moradores::getMoradores(){
-    for( int i = 0; i < moradores.length(); i++ ){
-        vertical->addLayout( moradores[i] );
-    }
-    resul->setLayout( vertical );
-    return resul;
+    this->gerarCasa( casa );
 }
 
 void Moradores::gerarCasa( QVector<logMorador*> casa ){
@@ -28,36 +16,41 @@ void Moradores::gerarCasa( QVector<logMorador*> casa ){
 }
 
 void Moradores::addUiMorador( logMorador* morador ){
-    QHBoxLayout *layout = new QHBoxLayout();
-    QCheckBox* cbxContribuindo = new QCheckBox( );
-    QLabel* lblNome = new QLabel( morador->getNro() + " - " + morador->getNome() );
-    QLabel* lblSaldo = new QLabel( QLocale().toCurrencyString( morador->getSaldo() ) );
-    Botao *btnMudarCotribuicao = new Botao( "+", morador );
-    QLabel* lblContribuicao = new QLabel( QLocale().toCurrencyString( morador->getContribuicao() ) );
+    rowLytGeral = lytGeral->rowCount();
 
+    QCheckBox* cbxContribuindo = new QCheckBox( );
     cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
     cbxContribuindo->setFixedWidth( 20 );
+    lytGeral->addWidget( cbxContribuindo, rowLytGeral, CONTRIBUINDO );
 
-    layout->addWidget( cbxContribuindo );
-    layout->addWidget( lblNome );
-    layout->addWidget( lblSaldo );
+    QLabel* lblNome = new QLabel();
+    lblNome->setText( morador->getNro() + " - " + morador->getNome() );
+    lytGeral->addWidget( lblNome, rowLytGeral, NOME );
+    
+    QLabel* lblSaldo = new QLabel();
+    lblSaldo->setText( QLocale().toCurrencyString( morador->getSaldo() ) );
+    lytGeral->addWidget( lblSaldo, rowLytGeral, SALDO );
 
-    //btnMudarCotribuicao->setText("+");
+    Botao *btnMudarCotribuicao = new Botao( "+", morador );
     btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
-    layout->addWidget(btnMudarCotribuicao);
+    lytGeral->addWidget(btnMudarCotribuicao, rowLytGeral, MUDAR_CONTRIBUICAO);
 
-    layout->addWidget( lblContribuicao );
+    QLabel* lblContribuicao = new QLabel();
+    lblContribuicao->setText( QLocale().toCurrencyString( morador->getContribuicao() ) );
+    lytGeral->addWidget( lblContribuicao, rowLytGeral, CONTRIBUICAO );
 
-
-    moradores.push_back( layout );
-
-    connect(cbxContribuindo, SIGNAL( stateChanged(int) ), btnMudarCotribuicao, SLOT( desabilitar(int) ) );
-    connect(btnMudarCotribuicao,SIGNAL( clicked() ), btnMudarCotribuicao, SLOT( addContribuicao( ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarSaldo( QString ) ), lblSaldo, SLOT( setText( QString ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao, SLOT( setText( QString ) ) );
+    connect( cbxContribuindo,     SIGNAL( stateChanged(int) ),                btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
+    connect( btnMudarCotribuicao, SIGNAL( clicked() ),                        btnMudarCotribuicao, SLOT( addContribuicao( ) ) );
+    connect( btnMudarCotribuicao, SIGNAL( atualizarSaldo( QString ) ),        lblSaldo,            SLOT( setText( QString ) ) );
+    connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao,     SLOT( setText( QString ) ) );
 }
 
-QSpacerItem *Moradores::espaco(int largura){
-    return new QSpacerItem( largura, 20, QSizePolicy::Minimum, QSizePolicy::Minimum);
+QWidget* Moradores::getMoradores(){
+    QWidget *resul = new QWidget();
+
+    resul->setLayout( lytGeral );
+    return resul;
 }
+
+
 

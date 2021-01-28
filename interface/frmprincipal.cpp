@@ -18,8 +18,8 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
         casa[i]->setSaldo( casa[i]->getSaldo() -600.00 + casa[i]->getContribuicao() );
     }//camada DB
 
-    Moradores *uiListaMoradores = new Moradores();
-    uiListaMoradores->gerarCasa( casa );
+    Moradores *uiListaMoradores = new Moradores( casa );
+    //uiListaMoradores->gerarCasa( casa );
 
     ui->scrollArea->setWidget( uiListaMoradores->getMoradores() );
 }

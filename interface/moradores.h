@@ -7,17 +7,15 @@
 class Moradores : public QObject{
 
 private:
-    QSpacerItem *espaco( int largura );
-
-
-public:
-    QVector<QHBoxLayout*> moradores;
-    QWidget *resul = new QWidget();
-    QVBoxLayout *vertical = new QVBoxLayout();
-
-    Moradores();
+    QGridLayout *lytGeral = new QGridLayout();
+    int rowLytGeral;
+    enum{ CONTRIBUINDO, NOME, SALDO, MUDAR_CONTRIBUICAO, CONTRIBUICAO };
+    
     void gerarCasa( QVector<logMorador*> casa );
     void addUiMorador( logMorador* morador );
+
+public:
+    Moradores( QVector<logMorador*> casa );
     QWidget* getMoradores();
 
 private Q_SLOTS:

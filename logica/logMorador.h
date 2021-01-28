@@ -3,7 +3,6 @@
 
 #include <config.h>
 
-
 class logMorador{
 
 private:
