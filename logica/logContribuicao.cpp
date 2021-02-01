@@ -1,14 +1,18 @@
 #include "logContribuicao.h"
 
 bool logContribuicao::addDados( float valor, QString obs ){
+   return this->addDados( &this->listaValoresInseridos, valor, QDateTime::currentDateTime(), obs );
+}
+
+bool logContribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs ){
+
     if( valor != 0 ){
         dados* novoValor = new dados;
 
         novoValor->valor = valor;
-        novoValor->dataHora = QDateTime::currentDateTime();
+        novoValor->dataHora = dataHora;
         novoValor->obs = obs;
-        listaValoresInseridos.push_back( novoValor );
-
+        lista->push_back( novoValor );
         
         return true;
     }

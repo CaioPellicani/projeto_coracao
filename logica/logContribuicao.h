@@ -19,7 +19,7 @@ private:
     logMorador* this_morador;
 
     bool getDBLista();
-    bool addDadosListaDB( float valor, QString obs );
+    bool addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs );
 
 public:
     bool addDados( float valor, QString obs );
