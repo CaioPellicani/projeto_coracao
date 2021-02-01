@@ -20,4 +20,6 @@
 
 enum { DESMARCADO, PARCIAL_MARCADO, MARCADO };
 
+QString formatoDinheiro( float value );
+
 #endif // CONFIG_H

@@ -15,7 +15,7 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 set( sources
-    config.h 
+    config.h config.cpp
 )
 
 add_library( ${PROJECT_NAME} STATIC ${sources} )

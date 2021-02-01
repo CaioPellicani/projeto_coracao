@@ -3,6 +3,7 @@
 
 #include <logMorador.h>
 #include "frmcontribuicao.h"
+#include <logContribuicao.h>
 #include "config.h"
 
 #include "ui_frmcontribuicao.h"
@@ -17,6 +18,8 @@ class frmContribuicao : public QDialog
 private:
     enum{ VALOR, DATA, HORA, OBS };
 
+    logContribuicao logica;
+
     typedef struct{
         float valor;
         QDateTime dataHora;
@@ -25,18 +28,19 @@ private:
 
     QVector<dados*> listaValores;
 
-    logMorador* this_morador;
+    logMorador* morador;
 
     void carregarTabela();
 
     void inserirValorLista();
 
+    void inserirValorTabela( logContribuicao::dados* _dados );
     void inserirValorTabela( QString nome, QString data, QString hora, QString obs );
 
     void conectar();
 
 public:
-    explicit frmContribuicao( logMorador* temp_morador, QWidget *parent = nullptr );
+    explicit frmContribuicao( logMorador* _morador, QWidget *parent = nullptr );
     ~frmContribuicao();
 
 private slots:

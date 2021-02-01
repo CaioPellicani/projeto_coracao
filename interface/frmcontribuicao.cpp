@@ -1,8 +1,9 @@
 #include "frmcontribuicao.h"
 
-frmContribuicao::frmContribuicao(logMorador* temp_morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
+frmContribuicao::frmContribuicao(logMorador* _morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
-    this_morador = temp_morador;
+    logica = logContribuicao();
+    this->morador = _morador;
     this->conectar();
     this->carregarTabela();
 }
@@ -18,21 +19,15 @@ void frmContribuicao::carregarTabela(){
     //while( true ) {
         //DADOS DB
         this->inserirValorTabela( "R$ 0,00", "01/01/1900", "00:00", "OBS teste" );
+        
     //}
 }
 
 void frmContribuicao::inserirValorLista(){
     dados* novoValor = new dados;
 
-    if( ui->dspValor->value() != 0 ){
-        novoValor->valor = ui->dspValor->value();
-        novoValor->dataHora = QDateTime::currentDateTime();
-        novoValor->obs = ui->txtObs->text();
-        listaValores.push_back( novoValor );
-        this->inserirValorTabela( QLocale().toCurrencyString( novoValor->valor ),
-                                  novoValor->dataHora.toString( "dd/MM/yyyy" ),
-                                  novoValor->dataHora.toString( "hh:mm:ss" ),
-                                  novoValor->obs );
+    if( logica.addDados(ui->dspValor->value(), ui->txtObs->text() ) ){
+        this->inserirValorTabela( logica.getDadosTail() );
         ui->dspValor->setValue( 0 );
     }
     else{
@@ -49,7 +44,15 @@ void frmContribuicao::inserirValorTabela( QString nome, QString data, QString ho
     ui->tblValores->setItem( i, DATA, new QTableWidgetItem( data ) );
     ui->tblValores->setItem( i, HORA, new QTableWidgetItem( hora ) );
     ui->tblValores->setItem( i, OBS , new QTableWidgetItem( obs ) );
+}
 
+void frmContribuicao::inserirValorTabela( logContribuicao::dados* _dados ){
+    int i = ui->tblValores->rowCount();
+    ui->tblValores->insertRow( i );
+    ui->tblValores->setItem( i, VALOR, new QTableWidgetItem( formatoDinheiro( _dados->valor ) ) );
+    ui->tblValores->setItem( i, DATA, new QTableWidgetItem( _dados->dataHora.toString( "dd/MM/yyyy" ) ) );
+    ui->tblValores->setItem( i, HORA, new QTableWidgetItem( _dados->dataHora.toString( "hh:mm:ss" ) ) );
+    ui->tblValores->setItem( i, OBS , new QTableWidgetItem( _dados->obs ) );
 }
 
 void frmContribuicao::on_btnInserirValor_clicked(){
@@ -57,22 +60,14 @@ void frmContribuicao::on_btnInserirValor_clicked(){
 }
 
 void frmContribuicao::aceitado(){
-    if( QMessageBox::question( this, this_morador->getNome(), "Tem Certeza?" ) == QMessageBox::Yes ){
-        //DB Insert
-        qDebug() << "Sim";
-        float resul = 0;
-        for( int i = 0; i < listaValores.length(); i++ ){
-           resul +=  listaValores[i]->valor;
-        }
-        this_morador->addContribuicao( resul );
+    if( QMessageBox::question( this, morador->getNome(), "Tem Certeza?" ) == QMessageBox::Yes ){
+        morador->addContribuicao( logica.getTotalInserido() );
         accept();
-    } else{
-        qDebug() << "Não";
-    }
+    } 
 }
 
 void frmContribuicao::rejeitado(){
-    qDebug() << this_morador->getNro();
+    qDebug() << morador->getNro();
     reject();
 }
 

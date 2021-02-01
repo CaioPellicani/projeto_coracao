@@ -30,11 +30,9 @@ public:
     void addContribuicao( float value ){ this->contribuicao += value; }
 
     float getCustoMes(){ return custoMes; }
-    QString getCustoMesString(){ return QLocale().toCurrencyString( custoMes ); }
     void setCustoMes( float value ){ this->custoMes = value; }
 
     float getSaldo(){ return contribuicao - custoMes + saldoMesAnterior; }
-    QString getSaldoString(){ return QLocale().toCurrencyString( contribuicao - custoMes + saldoMesAnterior ); }
 };
 
 #endif // LOGMORADORES_H
