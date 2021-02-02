@@ -31,19 +31,10 @@ void frmContribuicao::inserirValorLista(){
         ui->dspValor->setValue( 0 );
     }
     else{
-        QMessageBox::critical( this, "Erro", "Campo NÃO pode estar vazio !" );
+        QMessageBox::critical( this, "Erro", "Campo Valor NÃO pode ser ZERO !" );
         ui->dspValor->setFocus();
         delete novoValor;
     }
-}
-
-void frmContribuicao::inserirValorTabela( QString nome, QString data, QString hora, QString obs ){
-    int i = ui->tblValores->rowCount();
-    ui->tblValores->insertRow( i );
-    ui->tblValores->setItem( i, VALOR, new QTableWidgetItem( nome ) );
-    ui->tblValores->setItem( i, DATA, new QTableWidgetItem( data ) );
-    ui->tblValores->setItem( i, HORA, new QTableWidgetItem( hora ) );
-    ui->tblValores->setItem( i, OBS , new QTableWidgetItem( obs ) );
 }
 
 void frmContribuicao::inserirValorTabela( logContribuicao::dados* _dados ){
