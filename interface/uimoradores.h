@@ -4,7 +4,7 @@
 #include <logMorador.h>
 #include "botao.h"
 
-class Moradores : public QObject{
+class uiMoradores : public QObject{
 
 private:
     QGridLayout *lytGeral = new QGridLayout();
@@ -15,7 +15,7 @@ private:
     void addUiMorador( logMorador* morador );
 
 public:
-    Moradores( QVector<logMorador*> casa );
+    uiMoradores( QVector<logMorador*> casa );
     QWidget* getMoradores();
 
 private Q_SLOTS:

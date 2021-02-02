@@ -1,6 +1,6 @@
 #include "frmprincipal.h"
 #include "ui_frmprincipal.h"
-#include "moradores.h"
+#include "uimoradores.h"
 
 frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::frmPrincipal)
 {
@@ -17,7 +17,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
         casa[i]->setCustoMes( 600.00 );
     }
 
-    Moradores *uiListaMoradores = new Moradores( casa );
+    uiMoradores *uiListaMoradores = new uiMoradores( casa );
     ui->areaMoradores->setWidget( uiListaMoradores->getMoradores() );
 }
 
