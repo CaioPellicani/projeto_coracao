@@ -1,5 +1,10 @@
 #include "logContribuicao.h"
 
+logContribuicao::logContribuicao( ){
+    qDebug() << "teste";
+    this->getDBLista();
+}
+
 bool logContribuicao::addDados( float valor, QString obs ){
    return this->addDados( &this->listaValoresInseridos, valor, QDateTime::currentDateTime(), obs );
 }
@@ -27,4 +32,10 @@ float logContribuicao::getTotalInserido(){
         result +=  listaValoresInseridos[i]->valor;
     }   
     return result;
+}
+
+bool logContribuicao::getDBLista(){
+    this->addDados( &this->listaValoresDB, 10.0, QDateTime::currentDateTime(), "teste1" );
+    this->addDados( &this->listaValoresDB, 20.0, QDateTime::currentDateTime(), "teste2" );
+    return true;
 }

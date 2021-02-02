@@ -2,8 +2,9 @@
 
 frmContribuicao::frmContribuicao(logMorador* _morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
-    logica = logContribuicao();
     this->morador = _morador;
+    logica = logContribuicao( );
+
     this->conectar();
     this->carregarTabela();
 }
@@ -16,12 +17,11 @@ void frmContribuicao::conectar(){
 void frmContribuicao::carregarTabela(){
     ui->tblValores->clearContents();
     ui->tblValores->setRowCount( 0 );
-    //while( true ) {
-        //DADOS DB
-        this->inserirValorTabela( "R$ 0,00", "01/01/1900", "00:00", "OBS teste" );
-        
-    //}
-}
+
+    for( int i = 0; i < logica.getLenghtDB(); i++ ){
+        this->inserirValorTabela( logica.getDadosDB( i ) ); 
+    }
+}   
 
 void frmContribuicao::inserirValorLista(){
     dados* novoValor = new dados;

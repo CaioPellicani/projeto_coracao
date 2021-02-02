@@ -5,7 +5,8 @@
 #include "logMorador.h"
 
 class logContribuicao{
-public:    
+public:  
+    logContribuicao();  
     typedef struct{
         float valor;
         QDateTime dataHora;
@@ -16,7 +17,7 @@ private:
     QVector<dados*> listaValoresInseridos;
     QVector<dados*> listaValoresDB;
 
-    logMorador* this_morador;
+    logMorador* morador;
 
     bool getDBLista();
     bool addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs );
@@ -26,7 +27,8 @@ public:
     dados* getDadosTail(){ return listaValoresInseridos.last(); };
     float getTotalInserido();
 
-    dados* getDadosDB( int posicao ){ return listaValoresDB[posicao]; };
+    dados* getDadosDB( int posicao ){ return listaValoresDB[posicao]; }
+    int getLenghtDB(){ return listaValoresDB.size(); }
 };
 
 #endif
