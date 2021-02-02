@@ -2,8 +2,9 @@
 #define FRMPRINCIPAL_H
 
 #include <QMainWindow>
-#include <logMorador.h>
 #include "config.h"
+#include <logMorador.h>
+#include <logCasa.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class frmPrincipal; }

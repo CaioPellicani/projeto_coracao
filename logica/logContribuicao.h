@@ -7,6 +7,7 @@
 class logContribuicao{
 public:  
     logContribuicao();  
+    
     typedef struct{
         float valor;
         QDateTime dataHora;

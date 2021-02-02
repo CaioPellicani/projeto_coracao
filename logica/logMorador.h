@@ -1,5 +1,5 @@
-#ifndef LOGMORADOR_H
-#define LOGMORADOR_H
+#ifndef LOG_MORADOR_H
+#define LOG_MORADOR_H
 
 #include <config.h>
 

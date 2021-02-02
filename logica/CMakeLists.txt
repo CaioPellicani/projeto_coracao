@@ -17,6 +17,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 set( sources
     logMorador.h logMorador.cpp
     logContribuicao.h logContribuicao.cpp
+    logCasa.h logCasa.cpp
 )
 
 add_library( logica STATIC ${sources} )
