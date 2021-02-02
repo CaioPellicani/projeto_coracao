@@ -1,8 +1,8 @@
 #include "botao.h"
 
-Botao::Botao( QString texto, logMorador* temp_morador ){
+Botao::Botao( QString texto, logMorador* _morador ){
     this->setText( texto );
-    this_morador = temp_morador;
+    morador = _morador;
 }
 
 void Botao::desabilitar(int sinal){
@@ -16,13 +16,13 @@ void Botao::desabilitar(int sinal){
 }
 
 void Botao::addContribuicao( ){
-    frmContribuicao tela( this_morador, this );
-    tela.setWindowTitle( this_morador->getNome() );
+    frmContribuicao tela( morador, this );
+    tela.setWindowTitle( morador->getNome() );
     tela.exec();
 
-    emit atualizarSaldo( formatoDinheiro( this_morador->getSaldo() ) );
-    emit atualizarContribuicao( formatoDinheiro( this_morador->getContribuicao() ) );
+    emit atualizarSaldo( formatoDinheiro( morador->getSaldo() ) );
+    emit atualizarContribuicao( formatoDinheiro( morador->getContribuicao() ) );
     
-    qDebug() << this_morador->getNome() <<"\nsaldo: " << formatoDinheiro( this_morador->getSaldo() ) 
-                                << "\ncontribuicao: "  << formatoDinheiro( this_morador->getContribuicao() );
+    qDebug() << morador->getNome() <<"\nsaldo: " << formatoDinheiro( morador->getSaldo() ) 
+                                << "\ncontribuicao: "  << formatoDinheiro( morador->getContribuicao() );
 }

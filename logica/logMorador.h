@@ -26,13 +26,13 @@ public:
     void setNome( QString value ){ this->nome = value; }
 
     float getContribuicao(){ return contribuicao; }
-    QString getContribuicaoString(){ return QLocale().toCurrencyString( contribuicao ); }
     void addContribuicao( float value ){ this->contribuicao += value; }
 
     float getCustoMes(){ return custoMes; }
     void setCustoMes( float value ){ this->custoMes = value; }
 
     float getSaldo(){ return contribuicao - custoMes + saldoMesAnterior; }
+ 
 };
 
 #endif // LOGMORADORES_H

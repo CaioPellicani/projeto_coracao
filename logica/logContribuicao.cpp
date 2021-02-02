@@ -1,7 +1,6 @@
 #include "logContribuicao.h"
 
 logContribuicao::logContribuicao( ){
-    qDebug() << "teste";
     this->getDBLista();
 }
 
@@ -21,9 +20,7 @@ bool logContribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime d
         
         return true;
     }
-    else{
-        return false;
-    }
+    return false;
 }
 
 float logContribuicao::getTotalInserido(){

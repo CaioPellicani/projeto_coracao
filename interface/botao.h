@@ -7,7 +7,7 @@
 class Botao : public QToolButton{
     Q_OBJECT
 private:
-    logMorador* this_morador;
+    logMorador* morador;
 public:
     Botao( QString texto, logMorador* temp_morador );
 
