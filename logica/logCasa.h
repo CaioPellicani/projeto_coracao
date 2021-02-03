@@ -13,7 +13,7 @@ private:
     void getListaMoradoresDB();
     void getListaContasDB();
 
-public: 
+public:
     logCasa();
     
     QVector<logMorador*> getListaMoradores(){ return listaMoradores; }

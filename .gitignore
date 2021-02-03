@@ -4,6 +4,7 @@ vscode/**
 build/**
 **/CMakeFiles
 *.cmake
+*.user*
 
 *~
 *.save
