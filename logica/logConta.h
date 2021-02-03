@@ -5,6 +5,7 @@
 #include "logMorador.h"
 
 namespace Logica{
+    
     class Conta{
 
     private:

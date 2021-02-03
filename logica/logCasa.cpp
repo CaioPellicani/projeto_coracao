@@ -2,14 +2,14 @@
 
 using namespace Logica;
 
-logCasa::logCasa(){
+Casa::Casa(){
     this->getListaMoradoresDB();
 
 }
 
-void logCasa::getListaMoradoresDB(){
+void Casa::getListaMoradoresDB(){
     for( int i = 0; i < 5; i++ ){
-        listaMoradores.push_back( new logMorador() );
+        listaMoradores.push_back( new Morador() );
         listaMoradores[i]->setMarcacao( MARCADO );
         listaMoradores[i]->setNro( QString::number( 80 + i ) );
         listaMoradores[i]->setNome( "Bixo" + QString::number( i + 1 ) );
@@ -18,7 +18,7 @@ void logCasa::getListaMoradoresDB(){
     }
 }
 
-void logCasa::getListaContasDB(){
+void Casa::getListaContasDB(){
     for( int i = 0; i < 5; i++ ){
         listaContas.push_back( new Conta() );
         listaContas[i]->setMarcacao( MARCADO );

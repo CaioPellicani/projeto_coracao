@@ -6,18 +6,19 @@
 #include "logConta.h"
 
 namespace Logica{
-    class logCasa{
+    
+    class Casa{
     private:
-        QVector<logMorador*> listaMoradores;
+        QVector<Morador*> listaMoradores;
         QVector<Conta*> listaContas;
 
         void getListaMoradoresDB();
         void getListaContasDB();
 
     public:
-        logCasa();
+        Casa();
         
-        QVector<logMorador*> getListaMoradores(){ return listaMoradores; }
+        QVector<Morador*> getListaMoradores(){ return listaMoradores; }
         QVector<Conta*> getListaContas(){ return listaContas; }
 
     };

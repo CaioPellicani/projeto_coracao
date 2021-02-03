@@ -7,9 +7,9 @@
 class Botao : public QToolButton{
     Q_OBJECT
 private:
-    Logica::logMorador* morador;
+    Logica::Morador* morador;
 public:
-    Botao( QString texto, Logica::logMorador* temp_morador );
+    Botao( QString texto, Logica::Morador* temp_morador );
 
 public Q_SLOTS:
     void desabilitar(int sinal);

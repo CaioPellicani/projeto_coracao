@@ -2,7 +2,7 @@
 
 using namespace Logica;
 
-logMorador::logMorador()
+Morador::Morador()
 {
 
 }

@@ -3,7 +3,8 @@
 
 #include <config.h>
 namespace Logica{
-    class logMorador{
+
+    class Morador{
 
     private:
         int marcacao;
@@ -14,7 +15,7 @@ namespace Logica{
         float saldoMesAnterior = 0;
 
     public:
-        logMorador();
+        Morador();
 
         int getMarcacao(){ return marcacao; }
         void setMarcacao( int value){ this->marcacao = value; }

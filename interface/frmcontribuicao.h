@@ -18,7 +18,7 @@ class frmContribuicao : public QDialog
 private:
     enum{ VALOR, DATA, HORA, OBS };
 
-    Logica::logContribuicao logica;
+    Logica::Contribuicao logica;
 
     typedef struct{
         float valor;
@@ -28,19 +28,19 @@ private:
 
     QVector<dados*> listaValores;
 
-    Logica::logMorador* morador;
+    Logica::Morador* morador;
 
     void carregarTabela();
 
     void inserirValorLista();
 
-    void inserirValorTabela( Logica::logContribuicao::dados* _dados );
+    void inserirValorTabela( Logica::Contribuicao::dados* _dados );
     void inserirValorTabela( QString nome, QString data, QString hora, QString obs );
 
     void conectar();
 
 public:
-    explicit frmContribuicao( Logica::logMorador* _morador, QWidget *parent = nullptr );
+    explicit frmContribuicao( Logica::Morador* _morador, QWidget *parent = nullptr );
     ~frmContribuicao();
 
 private slots:

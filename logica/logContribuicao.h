@@ -4,9 +4,10 @@
 #include <config.h>
 #include "logMorador.h"
 namespace Logica{
-    class logContribuicao{
+
+    class Contribuicao{
     public:  
-        logContribuicao();  
+        Contribuicao();  
         
         typedef struct{
             float valor;
@@ -18,7 +19,7 @@ namespace Logica{
         QVector<dados*> listaValoresInseridos;
         QVector<dados*> listaValoresDB;
 
-        logMorador* morador;
+        Morador* morador;
 
         bool getDBLista();
         bool addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs );

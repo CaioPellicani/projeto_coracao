@@ -1,6 +1,6 @@
 #include "uimoradores.h"
 
-uiMoradores::uiMoradores( QVector<Logica::logMorador*> casa ){
+uiMoradores::uiMoradores( QVector<Logica::Morador*> casa ){
     rowLytGeral = lytGeral->rowCount();
     lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
     lytGeral->addWidget( new QLabel( "Saldo" ), rowLytGeral, SALDO );
@@ -9,13 +9,13 @@ uiMoradores::uiMoradores( QVector<Logica::logMorador*> casa ){
     this->gerarCasa( casa );
 }
 
-void uiMoradores::gerarCasa( QVector<Logica::logMorador*> casa ){
+void uiMoradores::gerarCasa( QVector<Logica::Morador*> casa ){
     for( int i = 0; i < casa.length(); i++ ) {
         this->addUiMorador( casa[i] );
     }
 }
 
-void uiMoradores::addUiMorador( Logica::logMorador* morador ){
+void uiMoradores::addUiMorador( Logica::Morador* morador ){
     rowLytGeral = lytGeral->rowCount();
 
     QCheckBox* cbxContribuindo = new QCheckBox( );

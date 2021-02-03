@@ -2,15 +2,15 @@
 
 using namespace Logica;
 
-logContribuicao::logContribuicao( ){
+Contribuicao::Contribuicao( ){
     this->getDBLista();
 }
 
-bool logContribuicao::addDados( float valor, QString obs ){
+bool Contribuicao::addDados( float valor, QString obs ){
    return this->addDados( &this->listaValoresInseridos, valor, QDateTime::currentDateTime(), obs );
 }
 
-bool logContribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs ){
+bool Contribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs ){
 
     if( valor != 0 ){
         dados* novoValor = new dados;
@@ -25,7 +25,7 @@ bool logContribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime d
     return false;
 }
 
-float logContribuicao::getTotalInserido(){
+float Contribuicao::getTotalInserido(){
     float result = 0;
     for( int i = 0; i < listaValoresInseridos.length(); i++ ){
         result +=  listaValoresInseridos[i]->valor;
@@ -33,7 +33,7 @@ float logContribuicao::getTotalInserido(){
     return result;
 }
 
-bool logContribuicao::getDBLista(){
+bool Contribuicao::getDBLista(){
     this->addDados( &this->listaValoresDB, 10.0, QDateTime::currentDateTime(), "teste1" );
     this->addDados( &this->listaValoresDB, 20.0, QDateTime::currentDateTime(), "teste2" );
     return true;

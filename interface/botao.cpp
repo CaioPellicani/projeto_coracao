@@ -1,6 +1,6 @@
 #include "botao.h"
 
-Botao::Botao( QString texto, Logica::logMorador* _morador ){
+Botao::Botao( QString texto, Logica::Morador* _morador ){
     this->setText( texto );
     morador = _morador;
 }

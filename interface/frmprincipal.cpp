@@ -6,7 +6,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
 {
     ui->setupUi(this);
 
-    Logica::logCasa casa = Logica::logCasa();
+    Logica::Casa casa = Logica::Casa();
 
     uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores() );
     ui->areaMoradores->setWidget( uiListaMoradores->getMoradores() );
