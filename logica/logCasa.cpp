@@ -17,5 +17,11 @@ void logCasa::getListaMoradoresDB(){
 }
 
 void logCasa::getListaContasDB(){
-
+    for( int i = 0; i < 5; i++ ){
+        listaContas.push_back( new logConta() );
+        listaContas[i]->setMarcacao( MARCADO );
+        listaContas[i]->setNome( "Conta" + QString::number( i + 1 ) );
+        listaContas[i]->setValor( 100.00 );
+        listaContas[i]->setCustoFixo( true );
+    }
 }
