@@ -23,6 +23,7 @@ void Botao::addContribuicao( ){
     emit atualizarSaldo( formatoDinheiro( morador->getSaldo() ) );
     emit atualizarContribuicao( formatoDinheiro( morador->getContribuicao() ) );
     
-    qDebug() << morador->getNome() <<"\nsaldo: " << formatoDinheiro( morador->getSaldo() ) 
-                                << "\ncontribuicao: "  << formatoDinheiro( morador->getContribuicao() );
+    qDebug() << morador->getNome()  
+             << "\nsaldo: " << formatoDinheiro( morador->getSaldo() ) 
+             << "\ncontribuicao: "  << formatoDinheiro( morador->getContribuicao() );
 }

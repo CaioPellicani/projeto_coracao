@@ -1,11 +1,11 @@
 #include "logCasa.h"
 
 logCasa::logCasa(){
-    this->getListaDB();
+    this->getListaMoradoresDB();
 
 }
 
-void logCasa::getListaDB(){
+void logCasa::getListaMoradoresDB(){
     for( int i = 0; i < 5; i++ ){
         listaMoradores.push_back( new logMorador() );
         listaMoradores[i]->setMarcacao( MARCADO );
@@ -14,4 +14,8 @@ void logCasa::getListaDB(){
         listaMoradores[i]->addContribuicao( 700.00 );
         listaMoradores[i]->setCustoMes( 600.00 );
     }
+}
+
+void logCasa::getListaContasDB(){
+
 }

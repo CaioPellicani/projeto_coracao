@@ -3,8 +3,9 @@
 
 #include <QMainWindow>
 #include "config.h"
-#include <logMorador.h>
+//#include <logMorador.h>
 #include <logCasa.h>
+#include <logConta.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class frmPrincipal; }
