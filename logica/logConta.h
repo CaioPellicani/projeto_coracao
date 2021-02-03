@@ -4,29 +4,30 @@
 #include <config.h>
 #include "logMorador.h"
 
-class logConta{
+namespace Logica{
+    class Conta{
 
-private:
-    int marcacao;
-    QString nome;
-    float valor = 0;
-    bool custoFixo = true;
+    private:
+        int marcacao;
+        QString nome;
+        float valor = 0;
+        bool custoFixo = true;
 
-public:
-    //logConta();
+    public:
+        //logConta();
 
-    int getMarcacao(){ return marcacao; }
-    void setMarcacao( int value){ this->marcacao = value; }
+        int getMarcacao(){ return marcacao; }
+        void setMarcacao( int value){ this->marcacao = value; }
 
-    QString getNome(){ return nome; }
-    void setNome( QString value ){ this->nome = value; }
+        QString getNome(){ return nome; }
+        void setNome( QString value ){ this->nome = value; }
 
-    float getValor(){ return valor; }
-    void setValor( int value){ this->valor = value; }
+        float getValor(){ return valor; }
+        void setValor( int value){ this->valor = value; }
 
-    bool getCustoFixo(){ return custoFixo; }
-    void setCustoFixo( int value){ this->custoFixo = value; }
+        bool getCustoFixo(){ return custoFixo; }
+        void setCustoFixo( int value){ this->custoFixo = value; }
 
-};
-
+    };
+}
 #endif

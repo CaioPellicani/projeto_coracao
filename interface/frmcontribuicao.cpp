@@ -1,9 +1,9 @@
 #include "frmcontribuicao.h"
 
-frmContribuicao::frmContribuicao(logMorador* _morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
+frmContribuicao::frmContribuicao( Logica::logMorador* _morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
     this->morador = _morador;
-    logica = logContribuicao( );
+    logica = Logica::logContribuicao( );
 
     this->conectar();
     this->carregarTabela();
@@ -37,7 +37,7 @@ void frmContribuicao::inserirValorLista(){
     }
 }
 
-void frmContribuicao::inserirValorTabela( logContribuicao::dados* _dados ){
+void frmContribuicao::inserirValorTabela( Logica::logContribuicao::dados* _dados ){
     int i = ui->tblValores->rowCount();
     ui->tblValores->insertRow( i );
     ui->tblValores->setItem( i, VALOR, new QTableWidgetItem( formatoDinheiro( _dados->valor ) ) );

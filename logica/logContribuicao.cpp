@@ -1,5 +1,7 @@
 #include "logContribuicao.h"
 
+using namespace Logica;
+
 logContribuicao::logContribuicao( ){
     this->getDBLista();
 }

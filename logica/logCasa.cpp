@@ -1,5 +1,7 @@
 #include "logCasa.h"
 
+using namespace Logica;
+
 logCasa::logCasa(){
     this->getListaMoradoresDB();
 
@@ -18,7 +20,7 @@ void logCasa::getListaMoradoresDB(){
 
 void logCasa::getListaContasDB(){
     for( int i = 0; i < 5; i++ ){
-        listaContas.push_back( new logConta() );
+        listaContas.push_back( new Conta() );
         listaContas[i]->setMarcacao( MARCADO );
         listaContas[i]->setNome( "Conta" + QString::number( i + 1 ) );
         listaContas[i]->setValor( 100.00 );

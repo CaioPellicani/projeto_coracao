@@ -5,21 +5,23 @@
 #include "logMorador.h"
 #include "logConta.h"
 
-class logCasa{
-private:
-    QVector<logMorador*> listaMoradores;
-    QVector<logConta*> listaContas;
+namespace Logica{
+    class logCasa{
+    private:
+        QVector<logMorador*> listaMoradores;
+        QVector<Conta*> listaContas;
 
-    void getListaMoradoresDB();
-    void getListaContasDB();
+        void getListaMoradoresDB();
+        void getListaContasDB();
 
-public:
-    logCasa();
-    
-    QVector<logMorador*> getListaMoradores(){ return listaMoradores; }
-    QVector<logConta*> getListaContas(){ return listaContas; }
+    public:
+        logCasa();
+        
+        QVector<logMorador*> getListaMoradores(){ return listaMoradores; }
+        QVector<Conta*> getListaContas(){ return listaContas; }
 
-};
+    };
+}
 
 
 #endif

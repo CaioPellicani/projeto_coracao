@@ -11,11 +11,11 @@ private:
     int rowLytGeral;
     enum{ CONTRIBUINDO, NOME, SALDO, MUDAR_CONTRIBUICAO, CONTRIBUICAO };
     
-    void gerarCasa( QVector<logMorador*> casa );
-    void addUiMorador( logMorador* morador );
+    void gerarCasa( QVector<Logica::logMorador*> casa );
+    void addUiMorador( Logica::logMorador* morador );
 
 public:
-    uiMoradores( QVector<logMorador*> casa );
+    uiMoradores( QVector<Logica::logMorador*> casa );
     QWidget* getMoradores();
 
 private Q_SLOTS:
