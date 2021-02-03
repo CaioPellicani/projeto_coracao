@@ -16,7 +16,7 @@ private:
 
 public:
     uiMoradores( QVector<Logica::Morador*> casa );
-    QWidget* getMoradores();
+    QWidget* getUiMoradores();
 
 private Q_SLOTS:
 };

@@ -9,7 +9,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
     Logica::Casa casa = Logica::Casa();
 
     uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores() );
-    ui->areaMoradores->setWidget( uiListaMoradores->getMoradores() );
+    ui->areaMoradores->setWidget( uiListaMoradores->getUiMoradores() );
 }
 
 frmPrincipal::~frmPrincipal()

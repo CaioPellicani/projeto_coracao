@@ -45,7 +45,7 @@ void uiMoradores::addUiMorador( Logica::Morador* morador ){
     connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao,     SLOT( setText( QString ) ) );
 }
 
-QWidget* uiMoradores::getMoradores(){
+QWidget* uiMoradores::getUiMoradores(){
     QWidget *resul = new QWidget();
 
     resul->setLayout( lytGeral );
