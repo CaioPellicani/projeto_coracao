@@ -2,12 +2,14 @@
 #define UI_MORADORES_H
 #include "config.h"
 #include <logMorador.h>
+#include "uiPolimorfico.h"
 #include "botao.h"
 
 class uiMoradores : public QObject{
 
 protected:
     QGridLayout *lytGeral = new QGridLayout();
+    
     int rowLytGeral;
     enum{ CONTRIBUINDO, NOME, SALDO, MUDAR_CONTRIBUICAO, CONTRIBUICAO };
 
