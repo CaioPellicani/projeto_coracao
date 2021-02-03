@@ -1,24 +1,24 @@
-#ifndef MORADORES_H
-#define MORADORES_H
+#ifndef UI_MORADORES_H
+#define UI_MORADORES_H
 #include "config.h"
 #include <logMorador.h>
 #include "botao.h"
 
 class uiMoradores : public QObject{
 
-private:
+protected:
     QGridLayout *lytGeral = new QGridLayout();
     int rowLytGeral;
     enum{ CONTRIBUINDO, NOME, SALDO, MUDAR_CONTRIBUICAO, CONTRIBUICAO };
-    
-    void gerarCasa( QVector<Logica::Morador*> casa );
-    void addUiMorador( Logica::Morador* morador );
+
+    void addUiCabecalho();
+    void gerarUiCompleta( QVector<Logica::Morador*> casa );
+    void addUiIndividual( Logica::Morador* morador );
 
 public:
     uiMoradores( QVector<Logica::Morador*> casa );
     QWidget* getUiMoradores();
 
-private Q_SLOTS:
 };
 
 #endif // MORADORES_H

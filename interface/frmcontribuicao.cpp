@@ -24,16 +24,15 @@ void frmContribuicao::carregarTabela(){
 }   
 
 void frmContribuicao::inserirValorLista(){
-    dados* novoValor = new dados;
 
     if( logica.addDados(ui->dspValor->value(), ui->txtObs->text() ) ){
         this->inserirValorTabela( logica.getDadosTail() );
         ui->dspValor->setValue( 0 );
+        ui->btnConfirmar->button(QDialogButtonBox::Ok)->setFocus();
     }
     else{
         QMessageBox::critical( this, "Erro", "Campo Valor NÃO pode ser ZERO !" );
         ui->dspValor->setFocus();
-        delete novoValor;
     }
 }
 
@@ -45,6 +44,8 @@ void frmContribuicao::inserirValorTabela( Logica::Contribuicao::dados* _dados ){
     ui->tblValores->setItem( i, HORA, new QTableWidgetItem( _dados->dataHora.toString( "hh:mm:ss" ) ) );
     ui->tblValores->setItem( i, OBS , new QTableWidgetItem( _dados->obs ) );
 }
+
+//SLOTS
 
 void frmContribuicao::on_btnInserirValor_clicked(){
     inserirValorLista();

@@ -1,26 +1,30 @@
 #include "uimoradores.h"
 
-uiMoradores::uiMoradores( QVector<Logica::Morador*> casa ){
+uiMoradores::uiMoradores( QVector<Logica::Morador*> listaExterna ){
+    this->addUiCabecalho();
+    this->gerarUiCompleta( listaExterna );
+}
+
+void uiMoradores::addUiCabecalho(){
     rowLytGeral = lytGeral->rowCount();
     lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
     lytGeral->addWidget( new QLabel( "Saldo" ), rowLytGeral, SALDO );
     lytGeral->addWidget( new QLabel( "Contribuição" ), rowLytGeral, CONTRIBUICAO );
-
-    this->gerarCasa( casa );
 }
 
-void uiMoradores::gerarCasa( QVector<Logica::Morador*> casa ){
-    for( int i = 0; i < casa.length(); i++ ) {
-        this->addUiMorador( casa[i] );
+void uiMoradores::gerarUiCompleta( QVector<Logica::Morador*> listaExterna ){
+    for( int i = 0; i < listaExterna.length(); i++ ) {
+        this->addUiIndividual( listaExterna[i] );
     }
 }
 
-void uiMoradores::addUiMorador( Logica::Morador* morador ){
+void uiMoradores::addUiIndividual( Logica::Morador* morador ){
     rowLytGeral = lytGeral->rowCount();
 
     QCheckBox* cbxContribuindo = new QCheckBox( );
     cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
-    cbxContribuindo->setFixedWidth( 20 );
+    cbxContribuindo->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Expanding );
+
     lytGeral->addWidget( cbxContribuindo, rowLytGeral, CONTRIBUINDO );
 
     QLabel* lblNome = new QLabel();
