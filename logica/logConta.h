@@ -5,7 +5,7 @@
 #include "logMorador.h"
 
 namespace Logica{
-    
+
     class Conta{
 
     private:
@@ -15,8 +15,8 @@ namespace Logica{
         bool custoFixo = true;
 
     public:
-        //logConta();
-
+        Conta();
+        
         int getMarcacao(){ return marcacao; }
         void setMarcacao( int value){ this->marcacao = value; }
 

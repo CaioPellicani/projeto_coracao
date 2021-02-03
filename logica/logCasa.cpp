@@ -4,6 +4,7 @@ using namespace Logica;
 
 Casa::Casa(){
     this->getListaMoradoresDB();
+    this->getListaContasDB();
 
 }
 
@@ -16,6 +17,7 @@ void Casa::getListaMoradoresDB(){
         listaMoradores[i]->addContribuicao( 700.00 );
         listaMoradores[i]->setCustoMes( 600.00 );
     }
+    qDebug() << "Moradores Extraidos do DB";
 }
 
 void Casa::getListaContasDB(){
@@ -26,4 +28,5 @@ void Casa::getListaContasDB(){
         listaContas[i]->setValor( 100.00 );
         listaContas[i]->setCustoFixo( true );
     }
+    qDebug() << "Contas Extraidos do DB";
 }

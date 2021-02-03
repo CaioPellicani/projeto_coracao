@@ -18,6 +18,7 @@ set( sources
     logMorador.h logMorador.cpp
     logContribuicao.h logContribuicao.cpp
     logCasa.h logCasa.cpp
+    logConta.h logConta.cpp
 )
 
 add_library( logica STATIC ${sources} )
