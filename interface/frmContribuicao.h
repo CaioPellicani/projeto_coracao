@@ -2,11 +2,10 @@
 #define FRMCONTRIBUICAO_H
 
 #include <logMorador.h>
-#include "frmcontribuicao.h"
 #include <logContribuicao.h>
 #include "config.h"
 
-#include "ui_frmcontribuicao.h"
+#include "ui_frmContribuicao.h"
 
 namespace Ui {
 class frmContribuicao;

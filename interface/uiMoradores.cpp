@@ -1,4 +1,4 @@
-#include "uimoradores.h"
+#include "uiMoradores.h"
 
 uiMoradores::uiMoradores( QVector<Logica::Morador*> listaExterna ){
     this->addUiCabecalho();

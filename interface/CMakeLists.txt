@@ -15,11 +15,10 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 add_library(${PROJECT_NAME}
-    frmprincipal.h frmprincipal.cpp frmprincipal.ui
-    frmcontribuicao.h frmcontribuicao.cpp frmcontribuicao.ui
+    frmPrincipal.h frmPrincipal.cpp frmPrincipal.ui
+    frmContribuicao.h frmContribuicao.cpp frmContribuicao.ui
     botao.h botao.cpp
-    uimoradores.h uimoradores.cpp
-    #uiPolimorfico.h uiPolimorfico.cpp
+    uiMoradores.h uiMoradores.cpp
     uiContas.h uiContas.cpp
 )
 

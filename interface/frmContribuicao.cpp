@@ -1,4 +1,4 @@
-#include "frmcontribuicao.h"
+#include "frmContribuicao.h"
 
 frmContribuicao::frmContribuicao( Logica::Morador* _morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);

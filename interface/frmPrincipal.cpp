@@ -1,6 +1,6 @@
-#include "frmprincipal.h"
-#include "ui_frmprincipal.h"
-#include "uimoradores.h"
+#include "frmPrincipal.h"
+#include "ui_frmPrincipal.h"
+#include "uiMoradores.h"
 #include "uiContas.h"
 
 frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::frmPrincipal){

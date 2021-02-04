@@ -1,7 +1,7 @@
 #ifndef BOTAO_H
 #define BOTAO_H
 #include "config.h"
-#include "frmcontribuicao.h"
+#include "frmContribuicao.h"
 
 
 class Botao : public QToolButton{
