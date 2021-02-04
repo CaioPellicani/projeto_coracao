@@ -2,29 +2,22 @@
 #define LOG_MORADOR_H
 
 #include <config.h>
+#include "poliUnidade.h"
+
 namespace Logica{
 
-    class Morador{
+    class Morador : public Unidade{
 
     private:
-        int marcacao;
         QString nro;
-        QString nome;
         float contribuicao = 0;
         float custoMes = 0;
         float saldoMesAnterior = 0;
 
     public:
-        Morador();
-
-        int getMarcacao(){ return marcacao; }
-        void setMarcacao( int value){ this->marcacao = value; }
 
         QString getNro(){ return nro; }
         void setNro( QString value ){ this->nro = value; }
-
-        QString getNome(){ return nome; }
-        void setNome( QString value ){ this->nome = value; }
 
         float getContribuicao(){ return contribuicao; }
         void addContribuicao( float value ){ this->contribuicao += value; }
