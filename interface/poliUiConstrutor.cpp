@@ -1,29 +1,25 @@
-#include "uiContas.h"
+#include "poliUiConstrutor.h"
 /*
-uiContas::uiContas( QVector<Logica::Conta *> _listaExterna )
-:UiConstrutor<Logica::Conta>(_listaExterna){
-}*/
-uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ):UiConstrutor( _listaExterna ){ 
-    qDebug() << "criada essa merda"; 
+UiConstrutor::UiConstrutor(){
 }
 
-void uiContas::addUiCabecalho(){
-    rowLytGeral = lytGeral->rowCount();
+void UiConstrutor::addUiCabecalho(){
+    /*rowLytGeral = lytGeral->rowCount();
 
     lytGeral->addWidget( new QLabel( "Pago" ), rowLytGeral, PAGANDO );
     lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
-    lytGeral->addWidget( new QLabel( "Valor" ), rowLytGeral, VALOR );
+    lytGeral->addWidget( new QLabel( "Valor" ), rowLytGeral, VALOR );*//*
 }
 
-void uiContas::gerarUiCompleta(){
+void UiConstrutor::gerarUiCompleta(){
 
     for( int i = 0; i < this->listaExterna.length(); i++ ) {
         this->addUiIndividual( this->listaExterna[i] );
     }
 }
 
-void uiContas::addUiIndividual( Logica::Conta * conta ){
-    rowLytGeral = lytGeral->rowCount();
+void UiConstrutor::addUiIndividual( Logica::Unidade* unidade ){
+    *//*rowLytGeral = lytGeral->rowCount();
 
     QCheckBox* cbxPagando = new QCheckBox( );
     cbxPagando->setCheckState( Qt::CheckState( conta->getMarcacao() ) );
@@ -37,14 +33,14 @@ void uiContas::addUiIndividual( Logica::Conta * conta ){
     
     QLabel* lblValor = new QLabel();
     lblValor->setText( formatoDinheiro( conta->getValor() ) );
-    lytGeral->addWidget( lblValor, rowLytGeral, VALOR );
+    lytGeral->addWidget( lblValor, rowLytGeral, VALOR );*//*
 }
 
-QWidget* uiContas::getUi(){
+QWidget* UiConstrutor::getUi(){
     QWidget *resul = new QWidget();
 
     resul->setLayout( lytGeral );
     return resul;
 }
 
-
+*/

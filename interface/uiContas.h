@@ -2,9 +2,10 @@
 #define UI_CONTAS
 
 #include <config.h>
+#include "poliUiConstrutor.h"
 #include <logConta.h>
 
-class uiContas{
+class uiContas : public UiConstrutor<Logica::Conta>{
 
 private:
     enum{ PAGANDO, NOME, VALOR };
@@ -19,10 +20,9 @@ private:
     void addUiIndividual( Logica::Conta * fonteDados );
     
 public:
+    //uiContas( QVector<Logica::Conta *> _listaExterna );
     uiContas( QVector<Logica::Conta *> _listaExterna );
     QWidget* getUi();
-
-
 };
 
 #endif

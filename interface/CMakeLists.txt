@@ -18,8 +18,8 @@ add_library(${PROJECT_NAME}
     frmprincipal.h frmprincipal.cpp frmprincipal.ui
     frmcontribuicao.h frmcontribuicao.cpp frmcontribuicao.ui
     botao.h botao.cpp
+    poliUiConstrutor.h poliUiConstrutor.cpp
     uimoradores.h uimoradores.cpp
-    #uiPolimorfico.h uiPolimorfico.cpp
     uiContas.h uiContas.cpp
 )
 
