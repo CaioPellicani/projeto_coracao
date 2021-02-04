@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "config.h"
-//#include <logMorador.h>
 #include <logCasa.h>
 #include <logConta.h>
 

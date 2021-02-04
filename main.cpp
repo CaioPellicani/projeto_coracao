@@ -1,10 +1,14 @@
 #include <frmprincipal.h>
-#include <QApplication>
+#include <config.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    frmPrincipal w;
-    w.show();
+    frmPrincipal frmPrincipal;
+
+    frmPrincipal.setWindowTitle( QString( "Caixa da República " ).append( NOME_REPUBLICA ) );
+    
+    //frmPrincipal.showMaximized();
+    frmPrincipal.show();
     return a.exec();
 }

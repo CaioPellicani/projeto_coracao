@@ -2,7 +2,6 @@
 #define UI_MORADORES_H
 #include "config.h"
 #include <logMorador.h>
-#include "uiPolimorfico.h"
 #include "botao.h"
 
 class uiMoradores : public QObject{

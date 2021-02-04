@@ -26,7 +26,7 @@ void Casa::getListaContasDB(){
         listaContas[i]->setMarcacao( MARCADO );
         listaContas[i]->setNome( "Conta" + QString::number( i + 1 ) );
         listaContas[i]->setValor( 100.00 );
-        listaContas[i]->setCustoFixo( true );
+        listaContas[i]->setCustoFixo( DESMARCADO );
     }
     qDebug() << "Contas Extraidos do DB";
 }

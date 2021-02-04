@@ -19,8 +19,8 @@ add_library(${PROJECT_NAME}
     frmcontribuicao.h frmcontribuicao.cpp frmcontribuicao.ui
     botao.h botao.cpp
     uimoradores.h uimoradores.cpp
-    uiPolimorfico.h uiPolimorfico.cpp
-    uiContas.h
+    #uiPolimorfico.h uiPolimorfico.cpp
+    uiContas.h uiContas.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
