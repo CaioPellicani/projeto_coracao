@@ -40,8 +40,8 @@ void frmContribuicao::inserirValorTabela( Logica::Contribuicao::dados* _dados ){
     int i = ui->tblValores->rowCount();
     ui->tblValores->insertRow( i );
     ui->tblValores->setItem( i, VALOR, new QTableWidgetItem( formatoDinheiro( _dados->valor ) ) );
-    ui->tblValores->setItem( i, DATA, new QTableWidgetItem( _dados->dataHora.toString( "dd/MM/yyyy" ) ) );
-    ui->tblValores->setItem( i, HORA, new QTableWidgetItem( _dados->dataHora.toString( "hh:mm:ss" ) ) );
+    ui->tblValores->setItem( i, DATA, new QTableWidgetItem( formatoData( _dados->dataHora ) ) );
+    ui->tblValores->setItem( i, HORA, new QTableWidgetItem( formatoHora( _dados->dataHora ) ) );
     ui->tblValores->setItem( i, OBS , new QTableWidgetItem( _dados->obs ) );
 }
 

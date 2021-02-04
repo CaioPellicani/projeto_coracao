@@ -13,16 +13,6 @@ bool Contribuicao::addDados( float valor, QString obs ){
 bool Contribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs ){
 
     if( valor != 0 ){
-        /*
-        dados* novoValor = new dados;
-
-        novoValor->valor = valor;
-        novoValor->dataHora = dataHora;
-        novoValor->obs = obs;
-        lista->push_back( novoValor );
-        
-        return true;*/
-
         lista->push_back( new dados );
         lista->last()->valor = valor;
         lista->last()->dataHora = dataHora;

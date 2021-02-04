@@ -25,5 +25,7 @@ enum { DESMARCADO, PARCIAL_MARCADO, MARCADO };
 #define NOME_REPUBLICA "Pensão"
 
 QString formatoDinheiro( float value );
+QString formatoData( QDateTime value );
+QString formatoHora( QDateTime value );
 
 #endif // CONFIG_H

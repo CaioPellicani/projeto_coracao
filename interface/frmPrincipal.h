@@ -18,6 +18,9 @@ public:
     frmPrincipal(QWidget *parent = nullptr);
     ~frmPrincipal();
 
+private slots:
+    void on_btnAddMorador_clicked();
+
 private:
     Ui::frmPrincipal *ui;
 };

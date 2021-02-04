@@ -1,5 +1,6 @@
 #include "frmPrincipal.h"
 #include "ui_frmPrincipal.h"
+#include "frmNovoMorador.h"
 #include "uiMoradores.h"
 #include "uiContas.h"
 
@@ -15,8 +16,13 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
     ui->areaContas->setWidget( uiListaContas->getUi() );
 }
 
-frmPrincipal::~frmPrincipal()
-{
+frmPrincipal::~frmPrincipal(){
     delete ui;
 }
 
+
+void frmPrincipal::on_btnAddMorador_clicked(){
+    frmNovoMorador tela( this );
+    tela.setWindowTitle( "Novo Morador" );
+    tela.exec();
+}

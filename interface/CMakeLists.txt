@@ -17,9 +17,11 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 add_library(${PROJECT_NAME}
     frmPrincipal.h frmPrincipal.cpp frmPrincipal.ui
     frmContribuicao.h frmContribuicao.cpp frmContribuicao.ui
+    frmNovoMorador.h frmNovoMorador.cpp frmNovoMorador.ui
     botao.h botao.cpp
     uiMoradores.h uiMoradores.cpp
     uiContas.h uiContas.cpp
+
 )
 
 target_link_libraries(${PROJECT_NAME}
