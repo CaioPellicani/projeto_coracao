@@ -2,6 +2,7 @@
 #define FRMNOVOMORADOR_H
 
 #include <QDialog>
+#include <config.h>
 
 namespace Ui {
 class frmNovoMorador;

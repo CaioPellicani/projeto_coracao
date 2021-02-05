@@ -194,7 +194,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="edtTelefone"/>
+        <widget class="QLineEdit" name="edtTelefone">
+         <property name="inputMask">
+          <string>(99) 9999-9999</string>
+         </property>
+         <property name="text">
+          <string>() -</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="lblCelular">
@@ -216,7 +223,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="edtCelular"/>
+        <widget class="QLineEdit" name="edtCelular">
+         <property name="inputMask">
+          <string>(99) 9 9999-9999</string>
+         </property>
+         <property name="text">
+          <string>()  -</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
