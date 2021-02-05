@@ -14,15 +14,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
-add_library(${PROJECT_NAME}
+set(FORMS
     frmPrincipal.h frmPrincipal.cpp frmPrincipal.ui
     frmContribuicao.h frmContribuicao.cpp frmContribuicao.ui
     frmNovoMorador.h frmNovoMorador.cpp frmNovoMorador.ui
-    botao.h botao.cpp
+)
+
+set(UIS
+    uiBotao.h uiBotao.cpp
     uiMoradores.h uiMoradores.cpp
     uiContas.h uiContas.cpp
-
 )
+
+add_library(${PROJECT_NAME} ${FORMS} ${UIS} )
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets

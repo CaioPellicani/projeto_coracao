@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>648</width>
-    <height>294</height>
+    <width>794</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,20 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QHBoxLayout" name="lytControles">
+      <property name="spacing">
+       <number>15</number>
+      </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
       </property>
       <property name="rightMargin">
-       <number>0</number>
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
       </property>
       <item>
        <layout class="QVBoxLayout" name="lytMoradores">
@@ -57,8 +66,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>307</width>
-             <height>163</height>
+             <width>357</width>
+             <height>306</height>
             </rect>
            </property>
           </widget>
@@ -116,8 +125,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>307</width>
-             <height>163</height>
+             <width>356</width>
+             <height>306</height>
             </rect>
            </property>
           </widget>
@@ -153,7 +162,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>648</width>
+     <width>794</width>
      <height>22</height>
     </rect>
    </property>

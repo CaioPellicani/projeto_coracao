@@ -22,7 +22,7 @@
 
 enum { DESMARCADO, PARCIAL_MARCADO, MARCADO };
 
-#define NOME_REPUBLICA "Pensão"
+#define NOME_REPUBLICA "Nome_Rep"
 
 QString formatoDinheiro( float value );
 QString formatoData( QDateTime value );
