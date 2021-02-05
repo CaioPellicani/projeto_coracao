@@ -2,9 +2,10 @@
 #define UI_CONTAS
 
 #include <config.h>
+#include "tplUiConstrutor.h"
 #include <logConta.h>
 
-class uiContas{
+class uiContas : public UiConstrutor<Logica::Conta>{
 
 private:
     enum{ PAGANDO, NOME, VALOR };
@@ -15,14 +16,13 @@ private:
     QVector<Logica::Conta *> listaExterna;
 
     void addUiCabecalho();
-    void gerarUiCompleta();
+    //void gerarUiCompleta();
     void addUiIndividual( Logica::Conta * fonteDados );
     
 public:
+    //uiContas( QVector<Logica::Conta *> _listaExterna );
     uiContas( QVector<Logica::Conta *> _listaExterna );
-    QWidget* getUi();
-
-
+    //QWidget* getUi();
 };
 
 #endif

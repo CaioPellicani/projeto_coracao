@@ -23,10 +23,10 @@ void Casa::getListaMoradoresDB(){
 void Casa::getListaContasDB(){
     for( int i = 0; i < 5; i++ ){
         listaContas.push_back( new Conta() );
-        listaContas[i]->setMarcacao( MARCADO );
+        listaContas[i]->setMarcacao( DESMARCADO );
         listaContas[i]->setNome( "Conta" + QString::number( i + 1 ) );
         listaContas[i]->setValor( 100.00 );
-        listaContas[i]->setCustoFixo( DESMARCADO );
+        listaContas[i]->setCustoFixo( true );
     }
     qDebug() << "Contas Extraidos do DB";
 }

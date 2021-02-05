@@ -25,8 +25,11 @@ set(UIS
     uiMoradores.h uiMoradores.cpp
     uiContas.h uiContas.cpp
 )
+set(TEMPLATES
+    tplUiConstrutor.h
+)
 
-add_library(${PROJECT_NAME} ${FORMS} ${UIS} )
+add_library(${PROJECT_NAME} ${FORMS} ${UIS} ${TEMPLATES})
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets

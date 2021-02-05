@@ -15,6 +15,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
     ui->areaMoradores->setWidget( uiListaMoradores->getUiMoradores() );
 
     uiContas *uiListaContas = new uiContas( casa.getListaContas() );
+    //uiContas *uiListaContas = new uiContas(  );
     ui->areaContas->setWidget( uiListaContas->getUi() );
 }
 

@@ -14,14 +14,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
-set( sources
+set( LOG
     logMorador.h logMorador.cpp
     logContribuicao.h logContribuicao.cpp
     logCasa.h logCasa.cpp
     logConta.h logConta.cpp
 )
 
-add_library( logica STATIC ${sources} )
+set( POLI
+    poliUnidade.h
+)
+
+add_library( logica STATIC ${LOG} ${POLI} )
 
 
 target_link_libraries(${PROJECT_NAME}
