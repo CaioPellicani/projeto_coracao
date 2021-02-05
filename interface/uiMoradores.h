@@ -10,7 +10,7 @@ protected:
     QGridLayout *lytGeral = new QGridLayout();
     
     int rowLytGeral;
-    enum{ CONTRIBUINDO, NOME, SALDO, MUDAR_CONTRIBUICAO, CONTRIBUICAO };
+    enum{ CONTRIBUINDO, NOME, SALDO, CONTRIBUICAO, MUDAR_CONTRIBUICAO };
 
     void addUiCabecalho();
     void gerarUiCompleta( QVector<Logica::Morador*> casa );

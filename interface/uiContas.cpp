@@ -1,6 +1,7 @@
 #include "uiContas.h"
 
 uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ){
+    this->lytGeral->setMargin( 30 );
     this->listaExterna = _listaExterna;
     this->addUiCabecalho();
     this->gerarUiCompleta();

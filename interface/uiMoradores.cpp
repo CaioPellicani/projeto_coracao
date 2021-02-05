@@ -1,6 +1,7 @@
 #include "uiMoradores.h"
 
 uiMoradores::uiMoradores( QVector<Logica::Morador*> listaExterna ){
+    this->lytGeral->setMargin( 30 ); 
     this->addUiCabecalho();
     this->gerarUiCompleta( listaExterna );
 }
@@ -35,13 +36,13 @@ void uiMoradores::addUiIndividual( Logica::Morador* morador ){
     lblSaldo->setText( formatoDinheiro( morador->getSaldo() ) );
     lytGeral->addWidget( lblSaldo, rowLytGeral, SALDO );
 
-    Botao *btnMudarCotribuicao = new Botao( "+", morador );
-    btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
-    lytGeral->addWidget(btnMudarCotribuicao, rowLytGeral, MUDAR_CONTRIBUICAO);
-
     QLabel* lblContribuicao = new QLabel();
     lblContribuicao->setText( formatoDinheiro( morador->getContribuicao() ) );
     lytGeral->addWidget( lblContribuicao, rowLytGeral, CONTRIBUICAO );
+
+    Botao *btnMudarCotribuicao = new Botao( "+", morador );
+    btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
+    lytGeral->addWidget(btnMudarCotribuicao, rowLytGeral, MUDAR_CONTRIBUICAO);
 
     connect( cbxContribuindo,     SIGNAL( stateChanged(int) ),                btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
     connect( btnMudarCotribuicao, SIGNAL( clicked() ),                        btnMudarCotribuicao, SLOT( addContribuicao( ) ) );
