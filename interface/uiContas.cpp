@@ -1,7 +1,6 @@
 #include "uiContas.h"
 
 uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ):UiConstrutor<Logica::Conta>( _listaExterna ){ 
-    qDebug() << "criada essa merda"; 
     this->addUiCabecalho();
     this->gerarUiCompleta();
 }

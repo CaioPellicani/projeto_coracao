@@ -14,12 +14,9 @@ protected:
 
     //TODO: Implementar metodo addUiCabecalho() addUiIndividual gerarUiCompleta()
     
-    void init();
-    
 
 public:
     UiConstrutor( QVector<T *> _listaExterna );
-
     QWidget* getUi();
 };
 
@@ -29,18 +26,6 @@ UiConstrutor<T>::UiConstrutor( QVector<T *> _listaExterna ){
     this->lytGeral->setMargin( 30 );
 };
 
-template<typename T>
-void UiConstrutor<T>::init(){
-    this->gerarUiCompleta();
-}
-
-template<typename T>
-void UiConstrutor<T>::gerarUiCompleta(){
-    for( int i = 0; i < this->listaExterna.length(); i++ ) {
-        addUiIndividual( this->listaExterna[i] );
-    }
-}
-*/
 template<typename T>
 QWidget* UiConstrutor<T>::getUi(){
     QWidget *resul = new QWidget();

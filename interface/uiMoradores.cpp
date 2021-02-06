@@ -1,9 +1,9 @@
 #include "uiMoradores.h"
 
-uiMoradores::uiMoradores( QVector<Logica::Morador*> listaExterna ){
-    this->lytGeral->setMargin( 30 ); 
+uiMoradores::uiMoradores( QVector<Logica::Morador*> _listaExterna ):UiConstrutor<Logica::Morador>( _listaExterna ){
+    //this->lytGeral->setMargin( 30 ); 
     this->addUiCabecalho();
-    this->gerarUiCompleta( listaExterna );
+    this->gerarUiCompleta();
 }
 
 void uiMoradores::addUiCabecalho(){
@@ -13,7 +13,7 @@ void uiMoradores::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Contribuição" ), rowLytGeral, CONTRIBUICAO );
 }
 
-void uiMoradores::gerarUiCompleta( QVector<Logica::Morador*> listaExterna ){
+void uiMoradores::gerarUiCompleta(){
     for( int i = 0; i < listaExterna.length(); i++ ) {
         this->addUiIndividual( listaExterna[i] );
     }
@@ -49,13 +49,3 @@ void uiMoradores::addUiIndividual( Logica::Morador* morador ){
     connect( btnMudarCotribuicao, SIGNAL( atualizarSaldo( QString ) ),        lblSaldo,            SLOT( setText( QString ) ) );
     connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao,     SLOT( setText( QString ) ) );
 }
-
-QWidget* uiMoradores::getUiMoradores(){
-    QWidget *resul = new QWidget();
-
-    resul->setLayout( lytGeral );
-    return resul;
-}
-
-
-

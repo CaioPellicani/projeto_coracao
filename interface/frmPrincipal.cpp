@@ -12,7 +12,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
     Logica::Casa casa = Logica::Casa();
 
     uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores() );
-    ui->areaMoradores->setWidget( uiListaMoradores->getUiMoradores() );
+    ui->areaMoradores->setWidget( uiListaMoradores->getUi() );
 
     uiContas *uiListaContas = new uiContas( casa.getListaContas() );
     //uiContas *uiListaContas = new uiContas(  );
