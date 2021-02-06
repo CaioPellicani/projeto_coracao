@@ -7,7 +7,7 @@
 frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::frmPrincipal){
     ui->setupUi(this);
 
-    this->on_btnAddMorador_clicked(); //teste
+    //this->on_btnAddMorador_clicked(); //teste
 
     Logica::Casa casa = Logica::Casa();
 

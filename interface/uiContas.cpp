@@ -1,16 +1,9 @@
 #include "uiContas.h"
 
-
-/*
-uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ){
-    this->lytGeral->setMargin( 30 );
-    this->listaExterna = _listaExterna;
-    this->addUiCabecalho();
-    this->gerarUiCompleta();
-*/
 uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ):UiConstrutor<Logica::Conta>( _listaExterna ){ 
     qDebug() << "criada essa merda"; 
-
+    this->addUiCabecalho();
+    this->gerarUiCompleta();
 }
 
 void uiContas::addUiCabecalho(){
@@ -20,13 +13,13 @@ void uiContas::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
     lytGeral->addWidget( new QLabel( "Valor" ), rowLytGeral, VALOR );
 }
-/*
+
 void uiContas::gerarUiCompleta(){
 
     for( int i = 0; i < this->listaExterna.length(); i++ ) {
         this->addUiIndividual( this->listaExterna[i] );
     }
-}*/
+}
 
 void uiContas::addUiIndividual( Logica::Conta * conta ){
     rowLytGeral = lytGeral->rowCount();
@@ -45,12 +38,5 @@ void uiContas::addUiIndividual( Logica::Conta * conta ){
     lblValor->setText( formatoDinheiro( conta->getValor() ) );
     lytGeral->addWidget( lblValor, rowLytGeral, VALOR );
 }
-/*
-QWidget* uiContas::getUi(){
-    QWidget *resul = new QWidget();
 
-    resul->setLayout( lytGeral );
-    return resul;
-}
-*/
 
