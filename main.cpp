@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 
     frmPrincipal.setWindowTitle( QString( "Caixa da República " ).append( NOME_REPUBLICA ) );
     
-    //frmPrincipal.showMaximized();
+    //                                                                                                                                                                                                                                                                                                                                                                                      frmPrincipal.showMaximized();
     frmPrincipal.show();
     return a.exec();
 }

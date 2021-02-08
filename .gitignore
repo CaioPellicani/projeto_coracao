@@ -4,6 +4,7 @@ build/**
 **/CMakeFiles
 *.cmake
 *.user*
+**/googletest
 
 *~
 *.save

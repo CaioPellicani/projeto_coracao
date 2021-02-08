@@ -15,9 +15,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
+enable_testing()
+
 add_subdirectory( config )
 add_subdirectory( logica )
 add_subdirectory( interface )
+add_subdirectory( googletest )
+add_subdirectory( teste )
 
 
 add_executable(${THIS}
