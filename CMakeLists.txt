@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(coracao_caixa LANGUAGES CXX)
+set( THIS coracao_caixa )
+project(${THIS} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -19,11 +20,11 @@ add_subdirectory( logica )
 add_subdirectory( interface )
 
 
-add_executable(${PROJECT_NAME}
+add_executable(${THIS}
     main.cpp
 )
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${THIS}
     PUBLIC Qt${QT_VERSION_MAJOR}::Widgets
     PUBLIC config
     PUBLIC interface

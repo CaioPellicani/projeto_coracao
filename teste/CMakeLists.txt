@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(teste LANGUAGES CXX)
+set(THIS teste)
+project(${THIS} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -15,7 +16,7 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 
-add_executable(${PROJECT_NAME}
+add_executable(${THIS}
 )
 
 target_link_libraries(teste

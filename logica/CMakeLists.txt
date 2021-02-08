@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(logica LANGUAGES CXX)
+set(THIS logica)
+project(THIS LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -25,15 +26,15 @@ set( POLI
     poliUnidade.h
 )
 
-add_library( logica STATIC ${LOG} ${POLI} )
+add_library( ${THIS} STATIC ${LOG} ${POLI} )
 
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${THIS}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
     PRIVATE config
 )
 
-target_include_directories(${PROJECT_NAME}
+target_include_directories(${THIS}
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
 

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(config LANGUAGES CXX)
+set(THIS config)
+project(${THIS} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -18,14 +19,14 @@ set( sources
     config.h config.cpp
 )
 
-add_library( ${PROJECT_NAME} STATIC ${sources} )
+add_library(${THIS} STATIC ${sources} )
 
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${THIS}
     PUBLIC Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-target_include_directories(${PROJECT_NAME}
+target_include_directories(${THIS}
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
 

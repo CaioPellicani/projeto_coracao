@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(interface LANGUAGES CXX)
+set(THIS interface)
+project(${THIS} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -29,9 +30,9 @@ set(TEMPLATES
     tplUiConstrutor.h
 )
 
-add_library(${PROJECT_NAME} ${FORMS} ${UIS} ${TEMPLATES})
+add_library(${THIS} ${FORMS} ${UIS} ${TEMPLATES})
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${THIS}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
     PRIVATE config
     PRIVATE logica
