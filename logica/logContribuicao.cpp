@@ -22,16 +22,16 @@ bool Contribuicao::addDados( QVector<dados*> *lista, float valor, QDateTime data
     return false;
 }
 
+bool Contribuicao::getDBLista(){
+    this->addDados( &this->listaValoresDB, 10.0, QDateTime::currentDateTime(), "teste1" );
+    this->addDados( &this->listaValoresDB, 20.0, QDateTime::currentDateTime(), "teste2" );
+    return true;
+}
+
 float Contribuicao::getTotalInserido(){
     float result = 0;
     for( int i = 0; i < listaValoresInseridos.length(); i++ ){
         result +=  listaValoresInseridos[i]->valor;
     }   
     return result;
-}
-
-bool Contribuicao::getDBLista(){
-    this->addDados( &this->listaValoresDB, 10.0, QDateTime::currentDateTime(), "teste1" );
-    this->addDados( &this->listaValoresDB, 20.0, QDateTime::currentDateTime(), "teste2" );
-    return true;
 }

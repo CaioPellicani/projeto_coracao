@@ -27,28 +27,36 @@ TEST_F( tMorador, addContribuicao ){
 }
 
 TEST_F( tMorador, validarEmail ){
-    QString emailValido[ 3 ] = { 
-        "teste@teste.com.br",
-        "teste123@teste123.com.br",
-        "teste@teste.com",
+    QStringList emailValido = {
+        "simple@example.com",
+        "very.common@example.com",
+        "disposable.style.email.with+symbol@example.com",
+        "other.email-with-hyphen@example.com",
+        "fully-qualified-domain@example.com",
+        "user.name+tag+sorting@example.com",
+        "user.name@example.com",
+        "x@example.com",
+        "example-indeed@strange-example.com",
     };
 
-    for( int i = 0; i < 3; i++ ){
+    for( int i = 0; i < emailValido.size(); i++ ){
         ASSERT_TRUE( morador->validarEmail( emailValido[i] ) );
         qDebug() << "Exemplo: " << emailValido[i];
     }
 
 
-    QString emailInvalido[ 6 ] = {
-        "teste@.com",
-        "@teste.com.br",
-        "teste@teste",
-        ".@.",
-        "teste.teste.com",
-        "www.teste.com.br",
+    QStringList emailInvalido = {
+        "Abc.example.com",
+        "A@b@c@example.com",
+        "a\"b(c)d,e:f;g<h>i[j\\k]l@example.com",
+        "just\"not\"right@example.com",     
+        "this is\"not\\allowed@example.com",
+        "this\\ still\\\"not\\\\allowed@example.com",
+        "1234567890123456789012345678901234567890123456789012345678901234+x@example.com"
+        "i_like_underscore@but_its_not_allowed_in_this_part.example.com",
     };
 
-    for( int i = 0; i < 6; i++ ){
+    for( int i = 0; i < emailInvalido.size(); i++ ){
         ASSERT_FALSE( morador->validarEmail( emailInvalido[i] ) );
         qDebug() << "Exemplo: " << emailInvalido[i];
     }

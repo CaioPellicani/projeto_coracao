@@ -16,6 +16,7 @@
 #include <QPushButton>
 #include <QScrollArea>
 #include <QSpacerItem>
+#include <QRegExp>   
 #include <QToolButton>
 #include <QValidator>
 #include <QVector>

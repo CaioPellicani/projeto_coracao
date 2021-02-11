@@ -16,12 +16,14 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 set( TESTES
-    helloTest.cpp
     testMorador.cpp
 )
 
 
-add_executable(${THIS} ${TESTES} )
+add_executable(
+    ${THIS} 
+    ${TESTES} 
+)
 
 target_link_libraries(${THIS}
     PUBLIC gtest_main
@@ -30,7 +32,7 @@ target_link_libraries(${THIS}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-#qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 
 add_test(
     NAME ${THIS}
