@@ -26,6 +26,8 @@ namespace Logica{
         void setCustoMes( float value ){ this->custoMes = value; }
 
         float getSaldo(){ return contribuicao - custoMes + saldoMesAnterior; }
+
+        bool validarEmail( QString email );    
     
     };  
 }
