@@ -6,5 +6,5 @@ Com tal projeto foi implementado:
 - Framework Qt
 - Projetos com modelagem multicamadas
 - Unit Test ( GoogleTest)
-- ~~Banco de Dados~~
+- ~~Banco de Dados SQL~~
   
