@@ -1,8 +1,8 @@
 #include "frmPrincipal.h"
 #include "ui_frmPrincipal.h"
 #include "frmNovoMorador.h"
-#include "uiMoradores.h"
-#include "uiContas.h"
+#include "wgtMoradores.h"
+#include "wgtContas.h"
 
 frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::frmPrincipal){
     ui->setupUi(this);

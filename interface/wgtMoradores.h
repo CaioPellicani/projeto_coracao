@@ -3,7 +3,7 @@
 #include "config.h"
 #include <logMorador.h>
 #include "tplUiConstrutor.h"
-#include "uiBotao.h"
+#include "wgtBotao.h"
 
 class uiMoradores : public QObject, public UiConstrutor<Logica::Morador>{
 

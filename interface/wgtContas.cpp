@@ -1,4 +1,4 @@
-#include "uiContas.h"
+#include "wgtContas.h"
 
 uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ):UiConstrutor<Logica::Conta>( _listaExterna ){ 
     this->addUiCabecalho();

@@ -1,4 +1,4 @@
-#include "uiMoradores.h"
+#include "wgtMoradores.h"
 
 uiMoradores::uiMoradores( QVector<Logica::Morador*> _listaExterna ):UiConstrutor<Logica::Morador>( _listaExterna ){
     //this->lytGeral->setMargin( 30 ); 
