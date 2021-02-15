@@ -1,6 +1,7 @@
 #ifndef FRMCONTRIBUICAO_H
 #define FRMCONTRIBUICAO_H
 
+#include "poliDialog.h"
 #include <logMorador.h>
 #include <logContribuicao.h>
 #include "config.h"
@@ -11,7 +12,7 @@ namespace Ui {
 class frmContribuicao;
 }
 
-class frmContribuicao : public QDialog
+class frmContribuicao : public PoliDialog
 {
     Q_OBJECT
 private:
@@ -29,6 +30,8 @@ private:
 
     Logica::Morador* morador;
 
+    void aceitado() override;
+
     void carregarTabela();
 
     void inserirValorLista();
@@ -36,15 +39,11 @@ private:
     void inserirValorTabela( Logica::Contribuicao::dados* _dados );
     void inserirValorTabela( QString nome, QString data, QString hora, QString obs );
 
-    void conectar();
-
 public:
     explicit frmContribuicao( Logica::Morador* _morador, QWidget *parent = nullptr );
     ~frmContribuicao();
 
 private slots:
-    void aceitado();
-    void rejeitado();
     void on_btnInserirValor_clicked();
 
 private:

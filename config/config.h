@@ -6,6 +6,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QDialog>
+#include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QJsonDocument>

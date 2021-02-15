@@ -14,6 +14,8 @@ class frmPrincipal : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    Logica::Casa casa;
 public:
     frmPrincipal(QWidget *parent = nullptr);
     ~frmPrincipal();

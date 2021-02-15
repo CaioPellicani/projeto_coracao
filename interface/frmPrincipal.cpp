@@ -9,7 +9,7 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
 
     //this->on_btnAddMorador_clicked(); //teste
 
-    Logica::Casa casa = Logica::Casa();
+    casa = Logica::Casa();
 
     uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores() );
     ui->areaMoradores->setWidget( uiListaMoradores->getUi() );
@@ -25,7 +25,7 @@ frmPrincipal::~frmPrincipal(){
 
 
 void frmPrincipal::on_btnAddMorador_clicked(){
-    frmNovoMorador tela( this );
+    frmNovoMorador tela( &this->casa, this );
     tela.setWindowTitle( "Novo Morador" );
     tela.exec();
 }

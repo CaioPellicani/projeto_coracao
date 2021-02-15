@@ -26,11 +26,12 @@ set(WIDGETS
     wgtMoradores.h wgtMoradores.cpp
     wgtContas.h wgtContas.cpp
 )
-set(TEMPLATES
+set(BASE_POLIMORFICA
     tplUiConstrutor.h
+    poliDialog.h
 )
 
-add_library(${THIS} ${FORMS} ${WIDGETS} ${TEMPLATES})
+add_library(${THIS} ${FORMS} ${WIDGETS} ${BASE_POLIMORFICA})
 
 target_link_libraries(${THIS}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
