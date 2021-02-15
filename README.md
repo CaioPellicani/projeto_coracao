@@ -1,4 +1,3 @@
-projeto_coracao
 Projeto para aprendizado
 
 Com tal projeto foi aplicado as tecnologias:
