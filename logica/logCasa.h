@@ -23,6 +23,7 @@ namespace Logica{
 
         void addNovoMorador(){ qDebug() << "addNovoMorador"; }
 
+        void salvarEstadoAtual(){ qDebug() << "salvarEstadoAtual"; }
     };
 }
 

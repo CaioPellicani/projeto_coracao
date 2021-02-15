@@ -13,7 +13,7 @@ private:
     QString pergunta;
 
 protected:   
-    virtual void aceitado(){ qDebug() << "aceitado"; }
+    virtual void aceitado() { qDebug() << "aceitado";  }
     virtual void rejeitado(){ qDebug() << "rejeitado"; }
     virtual void cancelado(){ qDebug() << "cancelado"; }
 
