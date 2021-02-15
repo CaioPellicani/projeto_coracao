@@ -17,7 +17,7 @@ protected:
     void addUiIndividual( Logica::Morador* morador );
 
 public:
-    uiMoradores( QVector<Logica::Morador*> _listaExterna );
+    explicit uiMoradores( QVector<Logica::Morador*> _listaExterna, QWidget *parent = nullptr );
     //QWidget* getUiMoradores();
 
 };

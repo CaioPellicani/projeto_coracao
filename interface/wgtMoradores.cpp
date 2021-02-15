@@ -1,6 +1,6 @@
 #include "wgtMoradores.h"
 
-uiMoradores::uiMoradores( QVector<Logica::Morador*> _listaExterna ):UiConstrutor<Logica::Morador>( _listaExterna ){
+uiMoradores::uiMoradores( QVector<Logica::Morador*> _listaExterna, QWidget *parent ):UiConstrutor<Logica::Morador>( _listaExterna, parent ){
     //this->lytGeral->setMargin( 30 ); 
     this->addUiCabecalho();
     this->gerarUiCompleta();

@@ -7,19 +7,17 @@
 frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::frmPrincipal){
     ui->setupUi(this);
 
-    //this->on_btnAddMorador_clicked(); //teste
-
     casa = Logica::Casa();
 
-    uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores() );
+    uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores(), this );
     ui->areaMoradores->setWidget( uiListaMoradores->getUi() );
 
     uiContas *uiListaContas = new uiContas( casa.getListaContas() );
-    //uiContas *uiListaContas = new uiContas(  );
     ui->areaContas->setWidget( uiListaContas->getUi() );
 }
 
 frmPrincipal::~frmPrincipal(){
+    casa.salvarEstadoAtual();
     delete ui;
 }
 
