@@ -8,4 +8,4 @@ Com tal projeto foi aplicado as tecnologias:
 - Framework Qt
 - Projetos com modelagem multicamadas
 - Unit Test ( GoogleTest)
-- Banco de Dados SQL
+- ~~Banco de Dados SQL~~
