@@ -15,7 +15,7 @@ private:
     void addUiIndividual( Logica::Conta * conta );
     
 public:
-    uiContas( QVector<Logica::Conta *> _listaExterna );
+    uiContas( QVector<Logica::Conta *> _listaExterna, QWidget *parent = nullptr );
 };
 
 #endif

@@ -8,4 +8,3 @@ Com tal projeto foi aplicado as tecnologias:
 - Projetos com modelagem multicamadas
 - Unit Test ( GoogleTest)
 - ~~Banco de Dados SQL~~
-  

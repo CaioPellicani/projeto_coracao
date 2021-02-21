@@ -1,4 +1,4 @@
-#include "uiBotao.h"
+#include "wgtBotao.h"
 
 Botao::Botao( QString texto, Logica::Morador* _morador ){
     this->setText( texto );

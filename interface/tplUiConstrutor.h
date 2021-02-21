@@ -16,12 +16,12 @@ protected:
     
 
 public:
-    UiConstrutor( QVector<T *> _listaExterna );
+    explicit UiConstrutor( QVector<T *> _listaExterna, QWidget *parent = nullptr );
     QWidget* getUi();
 };
 
 template<typename T>
-UiConstrutor<T>::UiConstrutor( QVector<T *> _listaExterna ){
+    UiConstrutor<T>::UiConstrutor( QVector<T *> _listaExterna, QWidget *parent ){
     this->listaExterna = _listaExterna;    
     this->lytGeral->setMargin( 30 );
 };

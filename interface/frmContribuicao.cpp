@@ -1,17 +1,17 @@
 #include "frmContribuicao.h"
 
-frmContribuicao::frmContribuicao( Logica::Morador* _morador, QWidget *parent) : QDialog(parent),ui(new Ui::frmContribuicao){
+frmContribuicao::frmContribuicao( Logica::Morador* _morador, QWidget *parent) : PoliDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
     this->morador = _morador;
     logica = Logica::Contribuicao( );
 
-    this->conectar();
+    conectar( ui->btnConfirmar );
+
     this->carregarTabela();
 }
 
-void frmContribuicao::conectar(){
-    QObject::connect(ui->btnConfirmar, SIGNAL(accepted()), this, SLOT(aceitado()));
-    QObject::connect(ui->btnConfirmar, SIGNAL(rejected()), this, SLOT(rejeitado()));
+void frmContribuicao::aceitado(){
+    morador->addContribuicao( logica.getTotalInserido() );
 }
 
 void frmContribuicao::carregarTabela(){
@@ -45,22 +45,8 @@ void frmContribuicao::inserirValorTabela( Logica::Contribuicao::dados* _dados ){
     ui->tblValores->setItem( i, OBS , new QTableWidgetItem( _dados->obs ) );
 }
 
-//SLOTS
-
 void frmContribuicao::on_btnInserirValor_clicked(){
     inserirValorLista();
-}
-
-void frmContribuicao::aceitado(){
-    if( QMessageBox::question( this, morador->getNome(), "Tem Certeza?" ) == QMessageBox::Yes ){
-        morador->addContribuicao( logica.getTotalInserido() );
-        accept();
-    } 
-}
-
-void frmContribuicao::rejeitado(){
-    qDebug() << morador->getNro();
-    reject();
 }
 
 frmContribuicao::~frmContribuicao(){

@@ -1,6 +1,6 @@
-#include "uiContas.h"
+#include "wgtContas.h"
 
-uiContas::uiContas( QVector<Logica::Conta *> _listaExterna ):UiConstrutor<Logica::Conta>( _listaExterna ){ 
+uiContas::uiContas( QVector<Logica::Conta *> _listaExterna, QWidget *parent ):UiConstrutor<Logica::Conta>( _listaExterna, parent ){ 
     this->addUiCabecalho();
     this->gerarUiCompleta();
 }

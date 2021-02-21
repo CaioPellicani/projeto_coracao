@@ -21,16 +21,17 @@ set(FORMS
     frmNovoMorador.h frmNovoMorador.cpp frmNovoMorador.ui
 )
 
-set(UIS
-    uiBotao.h uiBotao.cpp
-    uiMoradores.h uiMoradores.cpp
-    uiContas.h uiContas.cpp
+set(WIDGETS
+    wgtBotao.h wgtBotao.cpp
+    wgtMoradores.h wgtMoradores.cpp
+    wgtContas.h wgtContas.cpp
 )
-set(TEMPLATES
+set(BASE_POLIMORFICA
     tplUiConstrutor.h
+    poliDialog.h
 )
 
-add_library(${THIS} ${FORMS} ${UIS} ${TEMPLATES})
+add_library(${THIS} ${FORMS} ${WIDGETS} ${BASE_POLIMORFICA})
 
 target_link_libraries(${THIS}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets

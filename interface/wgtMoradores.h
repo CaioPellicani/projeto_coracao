@@ -3,7 +3,7 @@
 #include "config.h"
 #include <logMorador.h>
 #include "tplUiConstrutor.h"
-#include "uiBotao.h"
+#include "wgtBotao.h"
 
 class uiMoradores : public QObject, public UiConstrutor<Logica::Morador>{
 
@@ -17,7 +17,7 @@ protected:
     void addUiIndividual( Logica::Morador* morador );
 
 public:
-    uiMoradores( QVector<Logica::Morador*> _listaExterna );
+    explicit uiMoradores( QVector<Logica::Morador*> _listaExterna, QWidget *parent = nullptr );
     //QWidget* getUiMoradores();
 
 };
