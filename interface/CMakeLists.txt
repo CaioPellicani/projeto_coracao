@@ -23,11 +23,12 @@ set(FORMS
 
 set(WIDGETS
     wgtBotao.h wgtBotao.cpp
+    wgtCasa.h wgtCasa.cpp
     wgtMoradores.h wgtMoradores.cpp
     wgtContas.h wgtContas.cpp
 )
 set(BASE_POLIMORFICA
-    tplUiConstrutor.h
+    
     poliDialog.h
 )
 

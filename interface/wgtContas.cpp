@@ -1,41 +1,39 @@
 #include "wgtContas.h"
 
-uiContas::uiContas( QVector<Logica::Conta *> _listaExterna, QWidget *parent ):UiConstrutor<Logica::Conta>( _listaExterna, parent ){ 
-    this->addUiCabecalho();
-    this->gerarUiCompleta();
+WgtContas::WgtContas( QGridLayout *_lytGeral, Logica::Conta *conta, QWidget *parent ){ 
+    this->lytGeral = _lytGeral;
+
+    this->addUiIndividual( conta );
 }
 
-void uiContas::addUiCabecalho(){
-    rowLytGeral = lytGeral->rowCount();
+void WgtContas::addUiCabecalho(){
+    int row = 0;
 
-    lytGeral->addWidget( new QLabel( "Pago" ), rowLytGeral, PAGANDO );
-    lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
-    lytGeral->addWidget( new QLabel( "Valor" ), rowLytGeral, VALOR );
+    lytGeral->addWidget( new QLabel( "Pago" ), row, PAGANDO );
+    lytGeral->addWidget( new QLabel( "Nome" ), row, NOME );
+    lytGeral->addWidget( new QLabel( "Valor" ), row, VALOR );
 }
 
-void uiContas::gerarUiCompleta(){
-
-    for( int i = 0; i < this->listaExterna.length(); i++ ) {
-        this->addUiIndividual( this->listaExterna[i] );
+void WgtContas::addUiIndividual( Logica::Conta * conta ){
+    int row = lytGeral->rowCount();
+    
+    if( row == 1 ){
+        this->addUiCabecalho();
+        row++;
     }
-}
 
-void uiContas::addUiIndividual( Logica::Conta * conta ){
-    rowLytGeral = lytGeral->rowCount();
-
-    QCheckBox* cbxPagando = new QCheckBox( );
+    QCheckBox* cbxPagando = new QCheckBox();
+    lytGeral->addWidget( cbxPagando, row, PAGANDO );
     cbxPagando->setCheckState( Qt::CheckState( conta->getMarcacao() ) );
     cbxPagando->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Expanding );
 
-    lytGeral->addWidget( cbxPagando, rowLytGeral, PAGANDO );
-
     QLabel* lblNome = new QLabel();
     lblNome->setText( conta->getNome() );
-    lytGeral->addWidget( lblNome, rowLytGeral, NOME );
+    lytGeral->addWidget( lblNome, row, NOME );
     
     QLabel* lblValor = new QLabel();
     lblValor->setText( formatoDinheiro( conta->getValor() ) );
-    lytGeral->addWidget( lblValor, rowLytGeral, VALOR );
+    lytGeral->addWidget( lblValor, row, VALOR );
 }
 
 

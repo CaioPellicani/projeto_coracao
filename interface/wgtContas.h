@@ -2,20 +2,19 @@
 #define UI_CONTAS
 
 #include <config.h>
-#include "tplUiConstrutor.h"
 #include <logConta.h>
 
-class uiContas : public UiConstrutor<Logica::Conta>{
+class WgtContas{
 
 private:
-    enum{ PAGANDO, NOME, VALOR };
+    enum{ PAGANDO, NOME, VALOR };       
+    QGridLayout *lytGeral;
 
     void addUiCabecalho();
-    void gerarUiCompleta();
     void addUiIndividual( Logica::Conta * conta );
     
 public:
-    uiContas( QVector<Logica::Conta *> _listaExterna, QWidget *parent = nullptr );
+    WgtContas( QGridLayout *_lytGeral, Logica::Conta *conta, QWidget *parent = nullptr );
 };
 
 #endif

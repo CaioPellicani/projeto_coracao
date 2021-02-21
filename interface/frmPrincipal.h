@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "config.h"
+
 #include <logCasa.h>
 #include <logConta.h>
 
@@ -15,7 +16,8 @@ class frmPrincipal : public QMainWindow
     Q_OBJECT
 
 private:
-    Logica::Casa casa;
+    Logica::Casa logica;
+    
 public:
     frmPrincipal(QWidget *parent = nullptr);
     ~frmPrincipal();

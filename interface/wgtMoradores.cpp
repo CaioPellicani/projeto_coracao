@@ -1,48 +1,47 @@
 #include "wgtMoradores.h"
 
-uiMoradores::uiMoradores( QVector<Logica::Morador*> _listaExterna, QWidget *parent ):UiConstrutor<Logica::Morador>( _listaExterna, parent ){
-    //this->lytGeral->setMargin( 30 ); 
-    this->addUiCabecalho();
-    this->gerarUiCompleta();
+WgtMoradores::WgtMoradores(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent ){
+    this->lytGeral = _lytGeral;
+
+    this->addUiIndividual( morador );
 }
 
-void uiMoradores::addUiCabecalho(){
-    rowLytGeral = lytGeral->rowCount();
-    lytGeral->addWidget( new QLabel( "Nome" ), rowLytGeral, NOME );
-    lytGeral->addWidget( new QLabel( "Saldo" ), rowLytGeral, SALDO );
-    lytGeral->addWidget( new QLabel( "Contribuição" ), rowLytGeral, CONTRIBUICAO );
+void WgtMoradores::addUiCabecalho(){
+    int row = lytGeral->rowCount();
+    lytGeral->addWidget( new QLabel( "Nome" ), row, NOME );
+    lytGeral->addWidget( new QLabel( "Saldo" ), row, SALDO );
+    lytGeral->addWidget( new QLabel( "Contribuição" ), row, CONTRIBUICAO );
 }
 
-void uiMoradores::gerarUiCompleta(){
-    for( int i = 0; i < listaExterna.length(); i++ ) {
-        this->addUiIndividual( listaExterna[i] );
+void WgtMoradores::addUiIndividual( Logica::Morador* morador ){
+    int row = lytGeral->rowCount();
+
+    if( row == 1 ){
+        this->addUiCabecalho();
+        row++;
     }
-}
-
-void uiMoradores::addUiIndividual( Logica::Morador* morador ){
-    rowLytGeral = lytGeral->rowCount();
 
     QCheckBox* cbxContribuindo = new QCheckBox( );
     cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
     cbxContribuindo->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Expanding );
 
-    lytGeral->addWidget( cbxContribuindo, rowLytGeral, CONTRIBUINDO );
+    lytGeral->addWidget( cbxContribuindo, row, CONTRIBUINDO );
 
     QLabel* lblNome = new QLabel();
     lblNome->setText( morador->getNro() + " - " + morador->getNome() );
-    lytGeral->addWidget( lblNome, rowLytGeral, NOME );
+    lytGeral->addWidget( lblNome, row, NOME );
     
     QLabel* lblSaldo = new QLabel();
     lblSaldo->setText( formatoDinheiro( morador->getSaldo() ) );
-    lytGeral->addWidget( lblSaldo, rowLytGeral, SALDO );
+    lytGeral->addWidget( lblSaldo, row, SALDO );
 
     QLabel* lblContribuicao = new QLabel();
     lblContribuicao->setText( formatoDinheiro( morador->getContribuicao() ) );
-    lytGeral->addWidget( lblContribuicao, rowLytGeral, CONTRIBUICAO );
+    lytGeral->addWidget( lblContribuicao, row, CONTRIBUICAO );
 
     Botao *btnMudarCotribuicao = new Botao( "+", morador );
     btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
-    lytGeral->addWidget(btnMudarCotribuicao, rowLytGeral, MUDAR_CONTRIBUICAO);
+    lytGeral->addWidget(btnMudarCotribuicao, row, MUDAR_CONTRIBUICAO);
 
     connect( cbxContribuindo,     SIGNAL( stateChanged(int) ),                btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
     connect( btnMudarCotribuicao, SIGNAL( clicked() ),                        btnMudarCotribuicao, SLOT( addContribuicao( ) ) );

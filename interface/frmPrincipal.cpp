@@ -1,29 +1,31 @@
 #include "frmPrincipal.h"
 #include "ui_frmPrincipal.h"
 #include "frmNovoMorador.h"
+#include "wgtCasa.h"
 #include "wgtMoradores.h"
 #include "wgtContas.h"
 
 frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::frmPrincipal){
     ui->setupUi(this);
 
-    casa = Logica::Casa();
+    logica = Logica::Casa();
+    WgtCasa casa = WgtCasa( this );
 
-    uiMoradores *uiListaMoradores = new uiMoradores( casa.getListaMoradores(), this );
-    ui->areaMoradores->setWidget( uiListaMoradores->getUi() );
+    casa.setListaMoradores( logica.getListaMoradores() );
+    ui->areaMoradores->setWidget( casa.getLytMoradores() );
 
-    uiContas *uiListaContas = new uiContas( casa.getListaContas() );
-    ui->areaContas->setWidget( uiListaContas->getUi() );
+    casa.setListaContas( logica.getListaContas() );
+    ui->areaContas->setWidget( casa.getLytContas() );
 }
 
 frmPrincipal::~frmPrincipal(){
-    casa.salvarEstadoAtual();
+    logica.salvarEstadoAtual();
     delete ui;
 }
 
 
 void frmPrincipal::on_btnAddMorador_clicked(){
-    frmNovoMorador tela( &this->casa, this );
+    frmNovoMorador tela( &this->logica, this );
     tela.setWindowTitle( "Novo Morador" );
     tela.exec();
 }
