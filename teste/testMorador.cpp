@@ -41,7 +41,7 @@ TEST_F( tMorador, validarEmail ){
 
     for( int i = 0; i < emailValido.size(); i++ ){
         ASSERT_TRUE( morador->validarEmail( emailValido[i] ) );
-        qDebug() << "Exemplo: " << emailValido[i];
+        //qDebug() << "Exemplo: " << emailValido[i];
     }
 
 
@@ -58,7 +58,7 @@ TEST_F( tMorador, validarEmail ){
 
     for( int i = 0; i < emailInvalido.size(); i++ ){
         ASSERT_FALSE( morador->validarEmail( emailInvalido[i] ) );
-        qDebug() << "Exemplo: " << emailInvalido[i];
+        //qDebug() << "Exemplo: " << emailInvalido[i];
     }
 
 }
