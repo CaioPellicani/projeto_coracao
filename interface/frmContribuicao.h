@@ -6,7 +6,7 @@
 #include <logContribuicao.h>
 #include "config.h"
 
-#include "ui_frmContribuicao.h"
+
 
 namespace Ui {
 class frmContribuicao;

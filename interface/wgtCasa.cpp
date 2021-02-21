@@ -1,6 +1,6 @@
 #include "wgtCasa.h"
 
-QWidget* WgtCasa::getUi( QGridLayout *value ){
+QWidget* WgtCasa::converterLyt_Wgt( QGridLayout *value ){
     QWidget *resul = new QWidget();
 
     resul->setLayout( value );

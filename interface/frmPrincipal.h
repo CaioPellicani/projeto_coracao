@@ -6,6 +6,12 @@
 #include <logCasa.h>
 #include <logConta.h>
 
+#include "frmNovoMorador.h"
+#include "wgtCasa.h"
+#include "wgtMoradores.h"
+#include "wgtContas.h"
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class frmPrincipal; }
 QT_END_NAMESPACE
@@ -16,6 +22,7 @@ class frmPrincipal : public QMainWindow
 
 private:
     Logica::Casa logica;
+    WgtCasa casa;
 public:
     frmPrincipal(QWidget *parent = nullptr);
     ~frmPrincipal();

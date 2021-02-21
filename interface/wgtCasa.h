@@ -20,7 +20,7 @@ private:
 
     void gerarUi( int tipo, int length );
 
-    QWidget* getUi( QGridLayout *value );
+    QWidget* converterLyt_Wgt( QGridLayout *value );
     
 public:
     WgtCasa( QWidget *parent = nullptr ){}
@@ -28,8 +28,11 @@ public:
     void setListaMoradores( QVector<Logica::Morador *> value );
     void setListaContas( QVector<Logica::Conta *> value );
 
-    QWidget* getLytMoradores() { return this->getUi( lytMoradores ); }
-    QWidget* getLytContas()    { return this->getUi( lytContas ); }
+    QWidget* getWgtMoradores() { return this->converterLyt_Wgt( lytMoradores ); }
+    QGridLayout *getLytMoradores() { return this->lytMoradores; }
+    
+    QWidget* getWgtContas()    { return this->converterLyt_Wgt( lytContas ); }
+    QGridLayout *getLytContas() { return this->lytContas; }
 };
 
 #endif
