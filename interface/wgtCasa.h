@@ -10,14 +10,15 @@
 class WgtCasa{
 
 private:
+    enum{ CONTA, MORADOR };
+
     QVector<Logica::Conta *> listaContas;
     QVector<Logica::Morador *> listaMoradores;
 
     QGridLayout *lytMoradores = new QGridLayout();
     QGridLayout *lytContas = new QGridLayout();
 
-    void gerarUi( QVector<Logica::Conta *> lista );
-    void gerarUi( QVector<Logica::Morador *> lista );
+    void gerarUi( int tipo, int length );
 
     QWidget* getUi( QGridLayout *value );
     
