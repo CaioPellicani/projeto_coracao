@@ -9,15 +9,15 @@ namespace Logica{
     class Morador : public Unidade{
 
     private:
-        QString nro;
+        QString ID;
         float contribuicao = 0;
         float custoMes = 0;
         float saldoMesAnterior = 0;
 
     public:
 
-        QString getNro(){ return nro; }
-        void setNro( QString value ){ this->nro = value; }
+        QString getID(){ return ID; }
+        void setID( QString value ){ this->ID = value; }
 
         float getContribuicao(){ return contribuicao; }
         void addContribuicao( float value ){ this->contribuicao += value; }

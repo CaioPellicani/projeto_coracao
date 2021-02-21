@@ -11,8 +11,8 @@ frmNovoMorador::frmNovoMorador( Logica::Casa * _logica,  WgtCasa * _casa, QWidge
 void frmNovoMorador::aceitado(){
     Logica::Morador morador = Logica::Morador();
     morador.setMarcacao( MARCADO );
-    morador.setNro( QString::number( 100 ) );
-    morador.setNome( "Bixo Novo" );
+    morador.setID( ui->edtID->text() );
+    morador.setNome( ui->edtNome->text() );
     morador.addContribuicao( 0.00 );
     morador.setCustoMes( 600.00 );
 

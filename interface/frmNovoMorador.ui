@@ -48,12 +48,12 @@
           </size>
          </property>
          <property name="text">
-          <string>Numero</string>
+          <string>ID</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="edtNumero"/>
+        <widget class="QLineEdit" name="edtID"/>
        </item>
        <item>
         <spacer name="spc1">
