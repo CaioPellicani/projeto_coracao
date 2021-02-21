@@ -30,3 +30,11 @@ void Casa::getListaContasDB(){
     }
     qDebug() << "Contas Extraidos do DB";
 }
+
+bool Casa::addNovoMorador( Morador *morador ){ 
+    listaMoradores.push_back( morador );
+    
+    //INSERT DB
+
+    return true;
+}

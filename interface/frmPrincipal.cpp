@@ -28,4 +28,5 @@ void frmPrincipal::on_btnAddMorador_clicked(){
     frmNovoMorador tela( &this->logica, this );
     tela.setWindowTitle( "Novo Morador" );
     tela.exec();
+    qDebug() << logica.getListaMoradores().last()->getNome();
 }

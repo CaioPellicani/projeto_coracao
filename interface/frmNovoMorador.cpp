@@ -8,7 +8,15 @@ frmNovoMorador::frmNovoMorador( Logica::Casa * _casa, QWidget *parent ) : PoliDi
 }
 
 void frmNovoMorador::aceitado(){
-    casa->addNovoMorador();
+    Logica::Morador *morador = new Logica::Morador();
+    morador->setMarcacao( MARCADO );
+    morador->setNro( QString::number( 100 ) );
+    morador->setNome( "Bixo Novo" );
+    morador->addContribuicao( 0.00 );
+    morador->setCustoMes( 600.00 );
+
+    this->casa->addNovoMorador( morador );
+
 }
 
 frmNovoMorador::~frmNovoMorador()

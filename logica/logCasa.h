@@ -21,7 +21,7 @@ namespace Logica{
         QVector<Morador*> getListaMoradores(){ return listaMoradores; }
         QVector<Conta*> getListaContas(){ return listaContas; }
 
-        void addNovoMorador(){ qDebug() << "addNovoMorador"; }
+        bool addNovoMorador( Morador *morador );
 
         void salvarEstadoAtual(){ qDebug() << "salvarEstadoAtual"; }
     };
