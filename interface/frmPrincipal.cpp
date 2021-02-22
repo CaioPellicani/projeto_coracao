@@ -12,6 +12,8 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
 
     casa.setListaContas( logica.getListaContas() );
     ui->areaContas->setWidget( casa.getWgtContas() );
+
+    qDebug() << "Contribuição Total" << logica.getContribuicaoTotal();
 }
 
 frmPrincipal::~frmPrincipal(){
@@ -24,4 +26,5 @@ void frmPrincipal::on_btnAddMorador_clicked(){
     frmNovoMorador tela( &this->logica, &this->casa, this );
     tela.setWindowTitle( "Novo Morador" );
     tela.exec();
+    qDebug() << "Contribuição Total" << logica.getContribuicaoTotal();
 }

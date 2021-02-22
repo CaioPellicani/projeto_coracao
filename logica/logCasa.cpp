@@ -31,10 +31,17 @@ void Casa::getListaContasDB(){
     qDebug() << "Contas Extraidos do DB";
 }
 
-bool Casa::addNovoMorador( Morador *morador ){ 
-    listaMoradores.push_back( morador );
-    
-    //INSERT DB
+float Casa::getContribuicaoTotal(){
+    float result = 0;
+    for( int i = 0; i < this->listaMoradores.length(); i++ ){
+        result += this->listaMoradores[i]->getContribuicao();
+        qDebug() << this->listaMoradores[i]->getApelido() << i << ": " << this->listaMoradores[i]->getContribuicao();
+    }
+    return result;
+}
 
-    return true;
+Morador* Casa::novoMorador(){ 
+    listaMoradores.push_back( new Morador() );
+
+    return listaMoradores.last();
 }

@@ -30,7 +30,9 @@ protected:
     }
 
 public:
-    explicit PoliDialog( QWidget *parent = nullptr ){}
+    explicit PoliDialog( QWidget *parent = nullptr ){
+        
+    }
     ~PoliDialog(){}
 
 private slots:
