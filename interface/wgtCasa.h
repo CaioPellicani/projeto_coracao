@@ -4,8 +4,8 @@
 #include <config.h>
 #include <logMorador.h>
 #include <logConta.h>
-#include "wgtContas.h"
-#include "wgtMoradores.h"
+#include "wgtConta.h"
+#include "wgtMorador.h"
 
 class WgtCasa{
 

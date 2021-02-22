@@ -17,7 +17,7 @@ void frmNovoMorador::aceitado(){
     morador.setCustoMes( 600.00 );
 
     if( this->logica->addNovoMorador( &morador ) ){
-        WgtMoradores( casa->getLytMoradores(), &morador );
+        WgtMorador( casa->getLytMoradores(), &morador );
     }
 }
 

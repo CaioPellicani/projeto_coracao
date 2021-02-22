@@ -8,8 +8,6 @@
 
 #include "frmNovoMorador.h"
 #include "wgtCasa.h"
-#include "wgtMoradores.h"
-#include "wgtContas.h"
 
 
 QT_BEGIN_NAMESPACE

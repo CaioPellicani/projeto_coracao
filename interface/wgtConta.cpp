@@ -1,12 +1,12 @@
-#include "wgtContas.h"
+#include "wgtConta.h"
 
-WgtContas::WgtContas( QGridLayout *_lytGeral, Logica::Conta *conta, QWidget *parent ){ 
+WgtConta::WgtConta( QGridLayout *_lytGeral, Logica::Conta *conta, QWidget *parent ){ 
     this->lytGeral = _lytGeral;
 
     this->addUiIndividual( conta );
 }
 
-void WgtContas::addUiCabecalho(){
+void WgtConta::addUiCabecalho(){
     int row = 0;
 
     lytGeral->addWidget( new QLabel( "Pago" ), row, PAGANDO );
@@ -14,7 +14,7 @@ void WgtContas::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Valor" ), row, VALOR );
 }
 
-void WgtContas::addUiIndividual( Logica::Conta * conta ){
+void WgtConta::addUiIndividual( Logica::Conta * conta ){
     int row = lytGeral->rowCount();
     
     if( row == 1 ){

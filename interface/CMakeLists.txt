@@ -24,8 +24,8 @@ set(FORMS
 set(WIDGETS
     wgtBotao.h wgtBotao.cpp
     wgtCasa.h wgtCasa.cpp
-    wgtMoradores.h wgtMoradores.cpp
-    wgtContas.h wgtContas.cpp
+    wgtMorador.h wgtMorador.cpp
+    wgtConta.h wgtConta.cpp
 )
 set(BASE_POLIMORFICA
     

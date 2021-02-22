@@ -4,7 +4,7 @@
 #include <config.h>
 #include <logConta.h>
 
-class WgtContas{
+class WgtConta{
 
 private:
     enum{ PAGANDO, NOME, VALOR };       
@@ -14,7 +14,7 @@ private:
     void addUiIndividual( Logica::Conta * conta );
     
 public:
-    WgtContas( QGridLayout *_lytGeral, Logica::Conta *conta, QWidget *parent = nullptr );
+    WgtConta( QGridLayout *_lytGeral, Logica::Conta *conta, QWidget *parent = nullptr );
 };
 
 #endif

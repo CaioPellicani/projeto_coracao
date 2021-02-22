@@ -1,19 +1,19 @@
-#include "wgtMoradores.h"
+#include "wgtMorador.h"
 
-WgtMoradores::WgtMoradores(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent ){
+WgtMorador::WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent ){
     this->lytGeral = _lytGeral;
 
     this->addUiIndividual( morador );
 }
 
-void WgtMoradores::addUiCabecalho(){
+void WgtMorador::addUiCabecalho(){
     int row = lytGeral->rowCount();
     lytGeral->addWidget( new QLabel( "Nome" ), row, NOME );
     lytGeral->addWidget( new QLabel( "Saldo" ), row, SALDO );
     lytGeral->addWidget( new QLabel( "Contribuição" ), row, CONTRIBUICAO );
 }
 
-void WgtMoradores::addUiIndividual( Logica::Morador* morador ){
+void WgtMorador::addUiIndividual( Logica::Morador* morador ){
     int row = lytGeral->rowCount();
 
     if( row == 1 ){

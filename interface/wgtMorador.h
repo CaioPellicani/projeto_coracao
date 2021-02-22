@@ -4,7 +4,7 @@
 #include <logMorador.h>
 #include "wgtBotao.h"
 
-class WgtMoradores : public QObject{
+class WgtMorador : public QObject{
     Q_OBJECT
 protected:
     enum{ CONTRIBUINDO, NOME, SALDO, CONTRIBUICAO, MUDAR_CONTRIBUICAO };
@@ -14,7 +14,7 @@ protected:
     void addUiIndividual( Logica::Morador* morador );
 
 public:
-    explicit WgtMoradores(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent = nullptr );
+    explicit WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent = nullptr );
 
 };
 
