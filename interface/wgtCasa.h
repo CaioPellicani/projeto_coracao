@@ -23,7 +23,7 @@ private:
     QWidget* converterLyt_Wgt( QGridLayout *value );
     
 public:
-    WgtCasa( QWidget *parent = nullptr ){}
+    WgtCasa( QWidget *parent = nullptr );
 
     void setListaMoradores( QVector<Logica::Morador *> value );
     void setListaContas( QVector<Logica::Conta *> value );

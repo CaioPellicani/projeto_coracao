@@ -1,5 +1,10 @@
 #include "wgtCasa.h"
 
+WgtCasa::WgtCasa( QWidget *parent ){
+    this->lytContas->setMargin( 30 );
+    this->lytMoradores->setMargin( 30 );
+}
+
 QWidget* WgtCasa::converterLyt_Wgt( QGridLayout *value ){
     QWidget *resul = new QWidget();
 
