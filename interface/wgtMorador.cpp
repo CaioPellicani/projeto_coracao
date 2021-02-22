@@ -1,9 +1,53 @@
 #include "wgtMorador.h"
 
-WgtMorador::WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent ){
+WgtMorador::WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *_morador, QWidget *parent ){
     this->lytGeral = _lytGeral;
+    this->morador = _morador;
 
-    this->addUiIndividual( morador );
+    this->iniciarComponentes();
+    this->conectar();
+    this->setValores();
+    this->addUiIndividual();
+}
+
+void WgtMorador::iniciarComponentes(){
+    cbxContribuindo     = new QCheckBox( );  
+    lblApelido             = new QLabel();
+    lblSaldo            = new QLabel();
+    lblContribuicao     = new QLabel();
+    btnMudarCotribuicao = new Botao( "+", morador );
+
+    cbxContribuindo->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Expanding );
+    cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
+}
+
+void WgtMorador::conectar(){
+    connect( cbxContribuindo,     SIGNAL( stateChanged( int ) ), btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
+    connect( btnMudarCotribuicao, SIGNAL( clicked() ),           btnMudarCotribuicao, SLOT( addContribuicao()  ) );
+    connect( btnMudarCotribuicao, SIGNAL( atualizarWgt() ),      this,                SLOT( atualizarValores() ) );
+    connect( lblApelido,             SIGNAL( clicked() ),        this,                SLOT( atualizarMorador() ) );
+}
+
+void WgtMorador::setValores(){
+    lblApelido->setText( morador->getID() + " - " + morador->getApelido() );   
+    lblSaldo->setText( formatoDinheiro( morador->getSaldo() ) );
+    lblContribuicao->setText( formatoDinheiro( morador->getContribuicao() ) );
+    btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
+}
+
+void WgtMorador::addUiIndividual(){
+    int row = lytGeral->rowCount();
+
+    if( row == 1 ){
+        this->addUiCabecalho();
+        row++;
+    }
+
+    lytGeral->addWidget( cbxContribuindo, row, CONTRIBUINDO );
+    lytGeral->addWidget( lblApelido, row, NOME );
+    lytGeral->addWidget( lblSaldo, row, SALDO );
+    lytGeral->addWidget( lblContribuicao, row, CONTRIBUICAO );
+    lytGeral->addWidget(btnMudarCotribuicao, row, MUDAR_CONTRIBUICAO);
 }
 
 void WgtMorador::addUiCabecalho(){
@@ -13,38 +57,10 @@ void WgtMorador::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Contribuição" ), row, CONTRIBUICAO );
 }
 
-void WgtMorador::addUiIndividual( Logica::Morador* morador ){
-    int row = lytGeral->rowCount();
+void WgtMorador::atualizarValores(){
+    this->setValores();
+}
 
-    if( row == 1 ){
-        this->addUiCabecalho();
-        row++;
-    }
-
-    QCheckBox* cbxContribuindo = new QCheckBox( );
-    cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
-    cbxContribuindo->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Expanding );
-
-    lytGeral->addWidget( cbxContribuindo, row, CONTRIBUINDO );
-
-    QLabel* lblNome = new QLabel();
-    lblNome->setText( morador->getID() + " - " + morador->getApelido() );
-    lytGeral->addWidget( lblNome, row, NOME );
-    
-    QLabel* lblSaldo = new QLabel();
-    lblSaldo->setText( formatoDinheiro( morador->getSaldo() ) );
-    lytGeral->addWidget( lblSaldo, row, SALDO );
-
-    QLabel* lblContribuicao = new QLabel();
-    lblContribuicao->setText( formatoDinheiro( morador->getContribuicao() ) );
-    lytGeral->addWidget( lblContribuicao, row, CONTRIBUICAO );
-
-    Botao *btnMudarCotribuicao = new Botao( "+", morador );
-    btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
-    lytGeral->addWidget(btnMudarCotribuicao, row, MUDAR_CONTRIBUICAO);
-
-    connect( cbxContribuindo,     SIGNAL( stateChanged(int) ),                btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( clicked() ),                        btnMudarCotribuicao, SLOT( addContribuicao( ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarSaldo( QString ) ),        lblSaldo,            SLOT( setText( QString ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao,     SLOT( setText( QString ) ) );
+void WgtMorador::atualizarMorador(){
+    qDebug() << "atualizarMoradores";
 }
