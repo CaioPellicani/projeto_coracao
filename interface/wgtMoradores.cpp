@@ -28,7 +28,7 @@ void WgtMoradores::addUiIndividual( Logica::Morador* morador ){
     lytGeral->addWidget( cbxContribuindo, row, CONTRIBUINDO );
 
     QLabel* lblNome = new QLabel();
-    lblNome->setText( morador->getID() + " - " + morador->getNome() );
+    lblNome->setText( morador->getID() + " - " + morador->getApelido() );
     lytGeral->addWidget( lblNome, row, NOME );
     
     QLabel* lblSaldo = new QLabel();

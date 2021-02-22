@@ -13,7 +13,7 @@ void Casa::getListaMoradoresDB(){
         listaMoradores.push_back( new Morador() );
         listaMoradores[i]->setMarcacao( MARCADO );
         listaMoradores[i]->setID( QString::number( 80 + i ) );
-        listaMoradores[i]->setNome( "Bixo" + QString::number( i + 1 ) );
+        listaMoradores[i]->setApelido( "Bixo" + QString::number( i + 1 ) );
         listaMoradores[i]->addContribuicao( 700.00 );
         listaMoradores[i]->setCustoMes( 600.00 );
     }

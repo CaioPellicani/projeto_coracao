@@ -10,11 +10,14 @@ namespace Logica{
 
     private:
         QString ID;
+        QString apelido;
         float contribuicao = 0;
         float custoMes = 0;
         float saldoMesAnterior = 0;
 
     public:
+        QString getApelido(){ return this->apelido; }
+        void setApelido( QString value ){ this->apelido = value; }
 
         QString getID(){ return ID; }
         void setID( QString value ){ this->ID = value; }

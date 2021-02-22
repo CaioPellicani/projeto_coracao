@@ -12,7 +12,7 @@ void frmNovoMorador::aceitado(){
     Logica::Morador morador = Logica::Morador();
     morador.setMarcacao( MARCADO );
     morador.setID( ui->edtID->text() );
-    morador.setNome( ui->edtNome->text() );
+    morador.setApelido( ui->edtApelido->text() );
     morador.addContribuicao( 0.00 );
     morador.setCustoMes( 600.00 );
 
