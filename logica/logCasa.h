@@ -22,6 +22,7 @@ namespace Logica{
         QVector<Conta*> getListaContas(){ return listaContas; }
 
         Morador* novoMorador();
+        bool insertNovoMorador( Morador *novoMorador );
 
         float getContribuicaoTotal();
 

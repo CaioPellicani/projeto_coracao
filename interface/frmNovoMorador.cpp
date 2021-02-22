@@ -18,13 +18,14 @@ void frmNovoMorador::aceitado(){
         novoMorador->setApelido( ui->edtApelido->text() );
         novoMorador->addContribuicao( 5.00 );
         novoMorador->setCustoMes( 600.00 );
-
-        WgtMorador( casa->getLytMoradores(), novoMorador );
+        
+        if( this->logica->insertNovoMorador( novoMorador ) ){
+            WgtMorador( casa->getLytMoradores(), novoMorador );
+        }
     }
 }
 
-frmNovoMorador::~frmNovoMorador()
-{
+frmNovoMorador::~frmNovoMorador(){
     delete ui;
 }
 
