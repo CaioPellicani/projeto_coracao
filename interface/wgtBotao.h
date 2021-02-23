@@ -16,7 +16,8 @@ public Q_SLOTS:
     void addContribuicao();
 
 Q_SIGNALS:
-    void atualizarWgt();
+    void atualizarSaldo( QString novoSaldo );
+    void atualizarContribuicao( QString novaContribuicao );
 };
 
 

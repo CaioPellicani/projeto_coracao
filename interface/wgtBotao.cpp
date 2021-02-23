@@ -20,7 +20,8 @@ void Botao::addContribuicao( ){
     tela.setWindowTitle( morador->getNome() );
     tela.exec();
 
-    emit atualizarWgt();
+    emit atualizarSaldo( formatoDinheiro( morador->getSaldo() ) );
+    emit atualizarContribuicao( formatoDinheiro( morador->getContribuicao() ) );
     
     qDebug() << morador->getNome()  
              << "\nsaldo: " << formatoDinheiro( morador->getSaldo() ) 

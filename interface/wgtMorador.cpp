@@ -24,8 +24,8 @@ void WgtMorador::iniciarComponentes(){
 void WgtMorador::conectar(){
     connect( cbxContribuindo,     SIGNAL( stateChanged( int ) ), btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
     connect( btnMudarCotribuicao, SIGNAL( clicked() ),           btnMudarCotribuicao, SLOT( addContribuicao()  ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarWgt() ),      this,                SLOT( atualizarValores() ) );
-    connect( lblApelido,             SIGNAL( clicked() ),        this,                SLOT( atualizarMorador() ) );
+    connect( btnMudarCotribuicao, SIGNAL( atualizarSaldo( QString ) ),        lblSaldo,            SLOT( setText( QString ) ) );
+    connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao,     SLOT( setText( QString ) ) );
 }
 
 void WgtMorador::setValores(){

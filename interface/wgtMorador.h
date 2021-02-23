@@ -3,7 +3,6 @@
 #include "config.h"
 #include <logMorador.h>
 #include "wgtBotao.h"
-#include "wgtLabelClick.h"
 
 class WgtMorador : public QObject{
     Q_OBJECT
