@@ -20,7 +20,7 @@ class frmPrincipal : public QMainWindow
 
 private:
     Logica::Casa logica;
-    WgtCasa casa;
+    WgtCasa *casa;
 public:
     frmPrincipal(QWidget *parent = nullptr);
     ~frmPrincipal();

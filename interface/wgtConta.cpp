@@ -36,4 +36,3 @@ void WgtConta::addUiIndividual( Logica::Conta * conta ){
     lytGeral->addWidget( lblValor, row, VALOR );
 }
 
-

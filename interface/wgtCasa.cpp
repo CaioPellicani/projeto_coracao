@@ -27,11 +27,11 @@ void WgtCasa::gerarUi( int tipo, int length ){
     for( int i = 0; i < length; i++ ) {
         switch (tipo){
         case CONTA:
-            WgtConta( lytContas, this->listaContas[i] );
+            new WgtConta( lytContas, this->listaContas[i], this);
             break;
         
         case MORADOR:
-            WgtMorador( lytMoradores, this->listaMoradores[i] );
+            new WgtMorador( lytMoradores, this->listaMoradores[i], this );
             break;
         }       
     }

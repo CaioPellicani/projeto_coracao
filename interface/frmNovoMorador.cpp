@@ -20,10 +20,12 @@ void frmNovoMorador::aceitado(){
         novoMorador->setCustoMes( 600.00 );
         
         if( this->logica->insertNovoMorador( novoMorador ) ){
-            WgtMorador( casa->getLytMoradores(), novoMorador );
+            new WgtMorador( casa->getLytMoradores(), novoMorador, this->casa );
         }
     }
 }
+
+
 
 frmNovoMorador::~frmNovoMorador(){
     delete ui;

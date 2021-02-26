@@ -7,7 +7,7 @@
 #include "wgtConta.h"
 #include "wgtMorador.h"
 
-class WgtCasa{
+class WgtCasa : public QWidget{
 
 private:
     enum{ CONTA, MORADOR };

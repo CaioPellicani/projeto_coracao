@@ -56,4 +56,3 @@ void WgtMorador::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Saldo" ), row, SALDO );
     lytGeral->addWidget( new QLabel( "Contribuição" ), row, CONTRIBUICAO );
 }
-
