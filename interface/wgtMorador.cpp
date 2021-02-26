@@ -57,10 +57,3 @@ void WgtMorador::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Contribuição" ), row, CONTRIBUICAO );
 }
 
-void WgtMorador::atualizarValores(){
-    this->setValores();
-}
-
-void WgtMorador::atualizarMorador(){
-    qDebug() << "atualizarMoradores";
-}

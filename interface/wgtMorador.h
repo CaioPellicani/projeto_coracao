@@ -26,11 +26,6 @@ protected:
 public:
     explicit WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent = nullptr );
 
-public Q_SLOTS:
-    void atualizarValores();
-    void atualizarMorador();
-
-
 };
 
 #endif // MORADORES_H
