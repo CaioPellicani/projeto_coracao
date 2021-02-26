@@ -62,13 +62,7 @@ void WgtMorador::atualizar(){
 
 void WgtMorador::desabilitarBtn( int value ){
     morador->setMarcacao( value );
-
-    if( value == MARCADO ){
-        btnMudarCotribuicao->setEnabled( true );
-    }
-    else if( value == DESMARCADO ){
-        btnMudarCotribuicao->setEnabled( false );
-    }
+    btnMudarCotribuicao->setEnabled( value );
 }
 
 void WgtMorador::on_btnMudarCotribuicao_clicked(){
