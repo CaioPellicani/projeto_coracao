@@ -12,23 +12,22 @@ WgtMorador::WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *_morador, QWid
 
 void WgtMorador::iniciarComponentes(){
     cbxContribuindo     = new QCheckBox( );  
-    lblApelido             = new QLabel();
+    lblApelido          = new QLabel();
     lblSaldo            = new QLabel();
     lblContribuicao     = new QLabel();
-    btnMudarCotribuicao = new Botao( "+", morador );
+    btnMudarCotribuicao = new QToolButton();
 
     cbxContribuindo->setSizePolicy( QSizePolicy::Fixed, QSizePolicy::Expanding );
-    cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
+    btnMudarCotribuicao->setText( "+" );
 }
 
 void WgtMorador::conectar(){
-    connect( cbxContribuindo,     SIGNAL( stateChanged( int ) ), btnMudarCotribuicao, SLOT( desabilitar( int ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( clicked() ),           btnMudarCotribuicao, SLOT( addContribuicao()  ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarSaldo( QString ) ),        lblSaldo,            SLOT( setText( QString ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( atualizarContribuicao( QString ) ), lblContribuicao,     SLOT( setText( QString ) ) );
+    connect( cbxContribuindo, SIGNAL( stateChanged( int ) ), this, SLOT( desabilitarBtn( int ) ) );
+    connect( btnMudarCotribuicao, SIGNAL( clicked() )      , this, SLOT( on_btnMudarCotribuicao_clicked()  ) );
 }
 
 void WgtMorador::setValores(){
+    cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
     lblApelido->setText( morador->getID() + " - " + morador->getApelido() );   
     lblSaldo->setText( formatoDinheiro( morador->getSaldo() ) );
     lblContribuicao->setText( formatoDinheiro( morador->getContribuicao() ) );
@@ -47,7 +46,7 @@ void WgtMorador::addUiIndividual(){
     lytGeral->addWidget( lblApelido, row, NOME );
     lytGeral->addWidget( lblSaldo, row, SALDO );
     lytGeral->addWidget( lblContribuicao, row, CONTRIBUICAO );
-    lytGeral->addWidget(btnMudarCotribuicao, row, MUDAR_CONTRIBUICAO);
+    lytGeral->addWidget( btnMudarCotribuicao, row, MUDAR_CONTRIBUICAO );
 }
 
 void WgtMorador::addUiCabecalho(){
@@ -55,4 +54,28 @@ void WgtMorador::addUiCabecalho(){
     lytGeral->addWidget( new QLabel( "Nome" ), row, NOME );
     lytGeral->addWidget( new QLabel( "Saldo" ), row, SALDO );
     lytGeral->addWidget( new QLabel( "Contribuição" ), row, CONTRIBUICAO );
+}
+
+void WgtMorador::atualizar(){
+    this->setValores();
+}
+
+void WgtMorador::desabilitarBtn( int value ){
+    morador->setMarcacao( value );
+
+    if( value == MARCADO ){
+        btnMudarCotribuicao->setEnabled( true );
+    }
+    else if( value == DESMARCADO ){
+        btnMudarCotribuicao->setEnabled( false );
+    }
+}
+
+void WgtMorador::on_btnMudarCotribuicao_clicked(){
+
+    frmContribuicao tela( morador );
+    tela.setWindowTitle( morador->getNome() );
+    tela.exec();
+
+    this->setValores();
 }

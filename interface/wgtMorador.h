@@ -2,11 +2,11 @@
 #define UI_MORADORES_H
 #include "config.h"
 #include <logMorador.h>
-#include "wgtBotao.h"
+#include "frmContribuicao.h"
 
-class WgtMorador : public QObject{
+class WgtMorador : public QWidget{
     Q_OBJECT
-protected:
+private:
     enum{ CONTRIBUINDO, NOME, SALDO, CONTRIBUICAO, MUDAR_CONTRIBUICAO };
     QGridLayout *lytGeral;
     Logica::Morador * morador;
@@ -15,19 +15,21 @@ protected:
     QLabel* lblApelido;
     QLabel* lblSaldo;
     QLabel* lblContribuicao;
-    Botao *btnMudarCotribuicao;
+    QToolButton *btnMudarCotribuicao;
 
     void iniciarComponentes();
     void conectar();
     void setValores();
-    void addUiCabecalho();
     void addUiIndividual();
 
 private slots:
-
+    void atualizar();
+    void desabilitarBtn( int value );
+    void on_btnMudarCotribuicao_clicked();
 
 public:
     explicit WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent = nullptr );
+    void addUiCabecalho();
 
 };
 

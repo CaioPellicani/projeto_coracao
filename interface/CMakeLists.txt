@@ -22,7 +22,6 @@ set(FORMS
 )
 
 set(WIDGETS
-    wgtBotao.h wgtBotao.cpp
     wgtCasa.h wgtCasa.cpp
     wgtMorador.h wgtMorador.cpp
     wgtConta.h wgtConta.cpp
