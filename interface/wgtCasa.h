@@ -18,7 +18,8 @@ private:
     QGridLayout *lytMoradores = new QGridLayout();
     QGridLayout *lytContas = new QGridLayout();
 
-    void gerarUi( int tipo, int length );
+    void gerarMoradores();
+    void gerarContas();
 
     QWidget* converterLyt_Wgt( QGridLayout *value );
     

@@ -14,26 +14,25 @@ QWidget* WgtCasa::converterLyt_Wgt( QGridLayout *value ){
 
 void WgtCasa::setListaContas( QVector<Logica::Conta *> value ){ 
     this->listaContas = value; 
-    this->gerarUi( CONTA, this->listaContas.length() ); 
+    this->gerarContas(); 
 }
 
 void WgtCasa::setListaMoradores( QVector<Logica::Morador *> value ){ 
     this->listaMoradores = value; 
-    this->gerarUi( MORADOR, this->listaMoradores.length() );
+    this->gerarMoradores();
 }
 
-void WgtCasa::gerarUi( int tipo, int length ){
+void WgtCasa::gerarMoradores(){
+    for( int i = 0; i < this->listaMoradores.length(); i++ ) {
+        new WgtMorador( lytMoradores, this->listaMoradores[i], this); 
+    
+    }
+}
 
-    for( int i = 0; i < length; i++ ) {
-        switch (tipo){
-        case CONTA:
-            new WgtConta( lytContas, this->listaContas[i], this);
-            break;
-        
-        case MORADOR:
-            new WgtMorador( lytMoradores, this->listaMoradores[i], this );
-            break;
-        }       
+void WgtCasa::gerarContas(){
+    for( int i = 0; i < this->listaContas.length(); i++ ) {
+        new WgtConta( lytContas, this->listaContas[i], this ); 
+    
     }
 }
 
