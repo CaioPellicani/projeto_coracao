@@ -5,14 +5,13 @@ using namespace Logica;
 Casa::Casa(){
     this->getListaMoradoresDB();
     this->getListaContasDB();
-
 }
 
 void Casa::getListaMoradoresDB(){
     for( int i = 0; i < 5; i++ ){
         listaMoradores.push_back( new Morador() );
         listaMoradores[i]->setMarcacao( MARCADO );
-        listaMoradores[i]->setID( QString::number( 80 + i ) );
+        listaMoradores[i]->setID( 80 + i );
         listaMoradores[i]->setApelido( "Bixo" + QString::number( i + 1 ) );
         listaMoradores[i]->addContribuicao( 700.00 );
         listaMoradores[i]->setCustoMes( 600.00 );

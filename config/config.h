@@ -26,6 +26,7 @@ enum { DESMARCADO, PARCIAL_MARCADO, MARCADO };
 
 #define NOME_REPUBLICA "Nome_Rep"
 
+QString numToStr( double value );
 QString formatoDinheiro( float value );
 QString formatoData( QDateTime value );
 QString formatoHora( QDateTime value );

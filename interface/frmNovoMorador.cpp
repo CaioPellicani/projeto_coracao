@@ -10,11 +10,11 @@ frmNovoMorador::frmNovoMorador( Logica::Casa * _logica,  WgtCasa * _casa, QWidge
 
 void frmNovoMorador::aceitado(){
 
-    Logica::Morador* novoMorador = this->logica->novoMorador();
+    Logica::Morador* novoMorador = new Logica::Morador();//this->logica->novoMorador();
 
     if( novoMorador != nullptr ){
         novoMorador->setMarcacao( MARCADO );
-        novoMorador->setID( ui->edtID->text() );
+        novoMorador->setID( ui->spnID->value() );
         novoMorador->setApelido( ui->edtApelido->text() );
         novoMorador->addContribuicao( 5.00 );
         novoMorador->setCustoMes( 600.00 );
@@ -24,8 +24,6 @@ void frmNovoMorador::aceitado(){
         }
     }
 }
-
-
 
 frmNovoMorador::~frmNovoMorador(){
     delete ui;

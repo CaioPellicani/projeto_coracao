@@ -53,18 +53,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="edtID">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>30</width>
-           <height>16777215</height>
-          </size>
+        <widget class="QSpinBox" name="spnID">
+         <property name="maximum">
+          <number>999</number>
          </property>
         </widget>
        </item>
@@ -264,7 +255,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>edtID</tabstop>
   <tabstop>edtApelido</tabstop>
   <tabstop>edtAno</tabstop>
   <tabstop>edtNome</tabstop>

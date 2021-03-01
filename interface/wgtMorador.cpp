@@ -23,12 +23,12 @@ void WgtMorador::iniciarComponentes(){
 
 void WgtMorador::conectar(){
     connect( cbxContribuindo, SIGNAL( stateChanged( int ) ), this, SLOT( desabilitarBtn( int ) ) );
-    connect( btnMudarCotribuicao, SIGNAL( clicked() )      , this, SLOT( on_btnMudarCotribuicao_clicked()  ) );
+    connect( btnMudarCotribuicao, SIGNAL( clicked() ), this, SLOT( on_btnMudarCotribuicao_clicked()  ) );
 }
 
 void WgtMorador::setValores(){
     cbxContribuindo->setCheckState( Qt::CheckState( morador->getMarcacao() ) );
-    lblApelido->setText( morador->getID() + " - " + morador->getApelido() );   
+    lblApelido->setText( numToStr( morador->getID() ) + " - " + morador->getApelido() );   
     lblSaldo->setText( formatoDinheiro( morador->getSaldo() ) );
     lblContribuicao->setText( formatoDinheiro( morador->getContribuicao() ) );
     btnMudarCotribuicao->setEnabled( morador->getMarcacao() );
