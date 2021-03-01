@@ -6,6 +6,18 @@ Contribuicao::Contribuicao( ){
     this->getDBLista();
 }
 
+Contribuicao::dados* Contribuicao::getDadosDB( int posicao ){ 
+    return listaValoresDB[posicao]; 
+}
+
+int Contribuicao::getLenghtDB(){ 
+    return listaValoresDB.size(); 
+}
+
+Contribuicao::dados* Contribuicao::getDadosTail(){ 
+    return listaValoresInseridos.last(); 
+};
+
 bool Contribuicao::addDados( float valor, QString obs ){
    return this->addDados( &this->listaValoresInseridos, valor, QDateTime::currentDateTime(), obs );
 }

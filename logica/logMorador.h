@@ -16,19 +16,19 @@ namespace Logica{
         float saldoMesAnterior = 0;
 
     public:
-        QString getApelido(){ return this->apelido; }
-        void setApelido( QString value ){ this->apelido = value; }
+        QString getApelido();
+        void setApelido( QString value );
 
-        int getID(){ return ID; }
-        void setID( int value ){ this->ID = value; }
+        int getID();
+        void setID( int value );
 
-        float getContribuicao(){ return contribuicao; }
-        void addContribuicao( float value ){ this->contribuicao += value; }
+        float getContribuicao();
+        void addContribuicao( float value );
 
-        float getCustoMes(){ return custoMes; }
-        void setCustoMes( float value ){ this->custoMes = value; }
+        float getCustoMes();
+        void setCustoMes( float value );
 
-        float getSaldo(){ return contribuicao - custoMes + saldoMesAnterior; }
+        float getSaldo();
 
         bool validarEmail( QString email );    
     

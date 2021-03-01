@@ -26,11 +26,11 @@ namespace Logica{
 
     public:
         bool addDados( float valor, QString obs );
-        dados* getDadosTail(){ return listaValoresInseridos.last(); };
+        dados* getDadosTail();
         float getTotalInserido();
 
-        dados* getDadosDB( int posicao ){ return listaValoresDB[posicao]; }
-        int getLenghtDB(){ return listaValoresDB.size(); }
+        dados* getDadosDB( int posicao );
+        int getLenghtDB();
     };
 }
 

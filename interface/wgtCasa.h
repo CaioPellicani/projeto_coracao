@@ -29,9 +29,12 @@ public:
     void setListaMoradores( QVector<Logica::Morador *> value );
     void setListaContas( QVector<Logica::Conta *> value );
 
-    QWidget* getWgtMoradores() { return this->converterLyt_Wgt( lytMoradores ); }
-    QGridLayout *getLytMoradores() { return this->lytMoradores; }
+    QWidget* getWgtMoradores();
+    QGridLayout *getLytMoradores();
     
+    QWidget* getWgtContas();
+    QGridLayout *getLytContas();
+
     QWidget* getWgtContas()    { return this->converterLyt_Wgt( lytContas ); }
     QGridLayout *getLytContas() { return this->lytContas; }
 };

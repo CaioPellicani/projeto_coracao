@@ -24,16 +24,29 @@ void WgtCasa::setListaMoradores( QVector<Logica::Morador *> value ){
 
 void WgtCasa::gerarMoradores(){
     for( int i = 0; i < this->listaMoradores.length(); i++ ) {
-        new WgtMorador( lytMoradores, this->listaMoradores[i], this); 
-    
+        new WgtMorador( lytMoradores, this->listaMoradores[i], this);     
     }
 }
 
 void WgtCasa::gerarContas(){
     for( int i = 0; i < this->listaContas.length(); i++ ) {
-        new WgtConta( lytContas, this->listaContas[i], this ); 
-    
+        new WgtConta( lytContas, this->listaContas[i], this );     
     }
 }
 
+QWidget* WgtCasa::getWgtMoradores() { 
+    return this->converterLyt_Wgt( lytMoradores ); 
+}
+
+QWidget* WgtCasa::getWgtContas(){ 
+    return this->converterLyt_Wgt( lytContas ); 
+}
+
+QGridLayout* WgtCasa::getLytMoradores() { 
+    return this->lytMoradores; 
+}
+
+QGridLayout* WgtCasa::getLytContas(){ 
+    return this->lytContas; 
+}
 

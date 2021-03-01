@@ -14,11 +14,11 @@ namespace Logica{
 
     public:
 
-        float getValor(){ return valor; }
-        void setValor( int value){ this->valor = value; }
+        float getValor();
+        void setValor( int value);
 
-        bool getCustoFixo(){ return custoFixo; }
-        void setCustoFixo( int value){ this->custoFixo = value; }
+        bool getCustoFixo();
+        void setCustoFixo( int value);
 
     };
 }

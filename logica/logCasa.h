@@ -18,15 +18,17 @@ namespace Logica{
     public:
         Casa();
         
-        QVector<Morador*> getListaMoradores(){ return listaMoradores; }
-        QVector<Conta*> getListaContas(){ return listaContas; }
+        QVector<Morador*> getListaMoradores();
+        QVector<Conta*> getListaContas();
 
         Morador* novoMorador();
         bool insertNovoMorador( Morador *novoMorador );
+        void pushMoradorOrdenado( Morador * novoMorador );
 
         float getContribuicaoTotal();
 
-        void salvarEstadoAtual(){ qDebug() << "salvarEstadoAtual"; }
+        void salvarEstadoAtual();
+
     };
 }
 
