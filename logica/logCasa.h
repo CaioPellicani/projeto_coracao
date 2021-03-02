@@ -23,7 +23,7 @@ namespace Logica{
 
         Morador* novoMorador();
         bool insertNovoMorador( Morador *novoMorador );
-        void pushMoradorOrdenado( Morador * novoMorador );
+        void inserir( Morador* novoMorador );
 
         float getContribuicaoTotal();
 

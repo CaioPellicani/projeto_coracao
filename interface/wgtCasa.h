@@ -26,7 +26,7 @@ private:
     WgtMorador* criarMorador( Logica::Morador* _morador );
     void limparWgtMoradores();
     
-    
+
     QWidget* converterLyt_Wgt( QGridLayout *value );
     
 public:

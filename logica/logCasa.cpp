@@ -7,7 +7,15 @@ Casa::Casa(){
     this->getListaContasDB();
 }
 
-void Casa::getListaMoradoresDB(){
+QVector<Morador*> Casa::getListaMoradores(){ 
+    return listaMoradores; 
+}
+
+QVector<Conta*> Casa::getListaContas(){ 
+    return listaContas; 
+}
+
+void Casa::Casa::getListaMoradoresDB(){
     for( int i = 0; i < 5; i++ ){
         listaMoradores.push_back( new Morador() );
         listaMoradores[i]->setMarcacao( MARCADO );
@@ -40,12 +48,30 @@ float Casa::getContribuicaoTotal(){
 }
 
 Morador* Casa::novoMorador(){ 
-    listaMoradores.push_back( new Morador() );
+    Morador* novoMorador = new Morador();
+    listaMoradores.push_back( novoMorador );
 
-    return listaMoradores.last();
+    return novoMorador;
+}
+
+void Casa::inserir( Morador* novoMorador ){ 
+    int pos = 0;
+
+    for( int i = 0; i < listaMoradores.size(); i++ ){
+        if( listaMoradores[pos]->getID() < novoMorador->getID() ){
+            pos++;
+        }
+    }
+    listaMoradores.insert( pos, novoMorador );
+    
+    this->insertNovoMorador( novoMorador );
 }
 
 bool Casa::insertNovoMorador( Morador *novoMorador ){
     qDebug() << "insert de " << novoMorador->getApelido() << " no DB";
     return true;
+}
+
+void Casa::salvarEstadoAtual(){ 
+    qDebug() << "salvarEstadoAtual"; 
 }
