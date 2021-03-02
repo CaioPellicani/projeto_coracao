@@ -1,6 +1,7 @@
 #include "wgtCasa.h"
 
-WgtCasa::WgtCasa( QWidget *parent ){
+WgtCasa::WgtCasa( Logica::Casa* _logica, QWidget *parent ){
+    this->logica = _logica;
     this->lytContas->setMargin( 30 );
     this->lytMoradores->setMargin( 30 );
 }
@@ -12,25 +13,15 @@ QWidget* WgtCasa::converterLyt_Wgt( QGridLayout *value ){
     return resul;
 }
 
-void WgtCasa::setListaContas( QVector<Logica::Conta *> value ){ 
-    this->listaContas = value; 
-    this->gerarContas(); 
-}
-
-void WgtCasa::setListaMoradores( QVector<Logica::Morador *> value ){ 
-    this->listaMoradores = value; 
-    this->gerarMoradores();
-}
-
 void WgtCasa::gerarMoradores(){
-    for( int i = 0; i < this->listaMoradores.length(); i++ ) {
-        new WgtMorador( lytMoradores, this->listaMoradores[i], this);     
+    for( int i = 0; i < this->logica->getListaMoradores().length(); i++ ) {
+        new WgtMorador( lytMoradores, this->logica->getListaMoradores()[i], this);     
     }
 }
 
 void WgtCasa::gerarContas(){
-    for( int i = 0; i < this->listaContas.length(); i++ ) {
-        new WgtConta( lytContas, this->listaContas[i], this );     
+    for( int i = 0; i < this->logica->getListaContas().length(); i++ ) {
+        new WgtConta( lytContas, this->logica->getListaContas()[i], this );     
     }
 }
 

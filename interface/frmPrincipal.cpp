@@ -5,12 +5,12 @@ frmPrincipal::frmPrincipal(QWidget *parent) : QMainWindow(parent), ui(new Ui::fr
     ui->setupUi(this);
 
     logica = Logica::Casa();
-    casa = new WgtCasa( this );
+    casa = new WgtCasa( &logica,  this );
 
-    casa->setListaMoradores( logica.getListaMoradores() );
+    casa->gerarMoradores();
     ui->areaMoradores->setWidget( casa->getWgtMoradores() );
 
-    casa->setListaContas( logica.getListaContas() );
+    casa->gerarContas();
     ui->areaContas->setWidget( casa->getWgtContas() );
 
     qDebug() << "Contribuição Total" << logica.getContribuicaoTotal();
