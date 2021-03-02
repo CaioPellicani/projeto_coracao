@@ -29,6 +29,7 @@ private slots:
 
 public:
     explicit WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *morador, QWidget *parent = nullptr );
+    ~WgtMorador();
     void addUiCabecalho();
 
 };

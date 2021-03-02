@@ -15,27 +15,32 @@ private:
 
     Logica::Casa* logica;
 
-    QGridLayout *lytMoradores = new QGridLayout();
     QGridLayout *lytContas = new QGridLayout();
+    QVector<WgtConta*> listaWgtContas;
+    WgtConta* criarConta( Logica::Conta* _conta );
+    void limparWgtContas();
 
+
+    QGridLayout *lytMoradores = new QGridLayout();
+    QVector<WgtMorador*> listaWgtMoradores;
+    WgtMorador* criarMorador( Logica::Morador* _morador );
     void limparWgtMoradores();
+    
     
     QWidget* converterLyt_Wgt( QGridLayout *value );
     
 public:
     WgtCasa( Logica::Casa* _logica, QWidget *parent = nullptr );
 
-    void gerarMoradores();
-    void gerarContas();
-
     QWidget* getWgtMoradores();
     QGridLayout *getLytMoradores();
-    
+    void gerarMoradores();
+    void refreshMoradores();
+
     QWidget* getWgtContas();
     QGridLayout *getLytContas();
-
-    QWidget* getWgtContas()    { return this->converterLyt_Wgt( lytContas ); }
-    QGridLayout *getLytContas() { return this->lytContas; }
+    void gerarContas();
+    void refreshContas();
 };
 
 #endif

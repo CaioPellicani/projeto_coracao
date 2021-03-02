@@ -27,6 +27,7 @@ public:
 
 private slots:
     void on_btnAddMorador_clicked();
+    void on_btnAddConta_clicked();
 
 private:
     Ui::frmPrincipal *ui;

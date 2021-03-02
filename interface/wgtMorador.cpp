@@ -9,6 +9,13 @@ WgtMorador::WgtMorador(  QGridLayout *_lytGeral, Logica::Morador *_morador, QWid
     this->setValores();
     this->addUiIndividual();
 }
+WgtMorador::~WgtMorador(){
+    delete cbxContribuindo;  
+    delete lblApelido;
+    delete lblSaldo;
+    delete lblContribuicao;
+    delete btnMudarCotribuicao;
+}
 
 void WgtMorador::iniciarComponentes(){
     cbxContribuindo     = new QCheckBox( );  

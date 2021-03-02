@@ -27,3 +27,6 @@ void frmPrincipal::on_btnAddMorador_clicked(){
     tela.exec();
     qDebug() << "Contribuição Total" << logica.getContribuicaoTotal();
 }
+
+void frmPrincipal::on_btnAddConta_clicked(){
+}

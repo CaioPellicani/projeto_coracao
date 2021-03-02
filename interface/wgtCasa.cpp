@@ -15,7 +15,23 @@ QWidget* WgtCasa::converterLyt_Wgt( QGridLayout *value ){
 
 void WgtCasa::gerarMoradores(){
     for( int i = 0; i < this->logica->getListaMoradores().length(); i++ ) {
-        new WgtMorador( lytMoradores, this->logica->getListaMoradores()[i], this);     
+        listaWgtMoradores.push_back( criarMorador( this->logica->getListaMoradores()[i] ) );     
+    }
+}
+
+WgtMorador* WgtCasa::criarMorador( Logica::Morador* _morador ){
+    return new WgtMorador( lytMoradores, _morador, this);
+}
+
+void WgtCasa::refreshMoradores(){
+    this->limparWgtMoradores();
+    this->gerarMoradores();
+}
+
+void WgtCasa::limparWgtMoradores(){
+    while ( ! listaWgtMoradores.isEmpty() ){
+        delete listaWgtMoradores.first();
+        listaWgtMoradores.removeFirst();
     }
 }
 
@@ -25,19 +41,26 @@ void WgtCasa::gerarContas(){
     }
 }
 
-QWidget* WgtCasa::getWgtMoradores() { 
-    return this->converterLyt_Wgt( lytMoradores ); 
+WgtConta* WgtCasa::criarConta( Logica::Conta* _conta ){
+    return new WgtConta( lytContas, _conta, this);
 }
 
-QWidget* WgtCasa::getWgtContas(){ 
-    return this->converterLyt_Wgt( lytContas ); 
+void WgtCasa::refreshContas(){
+    this->limparWgtContas();
+    this->gerarContas();
 }
 
-QGridLayout* WgtCasa::getLytMoradores() { 
-    return this->lytMoradores; 
+void WgtCasa::limparWgtContas(){
+    while ( ! listaWgtContas.isEmpty() ){
+        delete listaWgtContas.first();
+        listaWgtContas.removeFirst();
+    }
 }
 
-QGridLayout* WgtCasa::getLytContas(){ 
-    return this->lytContas; 
-}
+QWidget* WgtCasa::getWgtMoradores() { return this->converterLyt_Wgt( lytMoradores ); }
+QWidget* WgtCasa::getWgtContas(){     return this->converterLyt_Wgt( lytContas ); }
+
+QGridLayout* WgtCasa::getLytMoradores() { return this->lytMoradores; }
+QGridLayout* WgtCasa::getLytContas(){ return this->lytContas; }
+
 
