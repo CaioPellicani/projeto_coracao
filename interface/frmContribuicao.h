@@ -28,11 +28,10 @@ private:
 
     QVector<dados*> listaValores;
 
-    Logica::Morador* morador;
-
     void aceitado() override;
 
     void carregarTabela();
+    void limparTabela();
 
     void inserirValorLista();
 

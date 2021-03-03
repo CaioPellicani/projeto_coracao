@@ -7,7 +7,8 @@ namespace Logica{
 
     class Contribuicao{
     public:  
-        Contribuicao();  
+        Contribuicao(){}; 
+        Contribuicao( Morador* _morador ); 
         
         typedef struct{
             float valor;
@@ -20,7 +21,7 @@ namespace Logica{
         QVector<dados*> listaValoresDB;
 
         Morador* morador;
-
+        bool insertDB();
         bool getDBLista();
         bool addDados( QVector<dados*> *lista, float valor, QDateTime dataHora, QString obs );
 
@@ -28,6 +29,8 @@ namespace Logica{
         bool addDados( float valor, QString obs );
         dados* getDadosTail();
         float getTotalInserido();
+
+        void concluir();
 
         dados* getDadosDB( int posicao );
         int getLenghtDB();

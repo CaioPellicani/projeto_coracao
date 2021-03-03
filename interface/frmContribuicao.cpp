@@ -3,8 +3,7 @@
 
 frmContribuicao::frmContribuicao( Logica::Morador* _morador, QWidget *parent) : PoliDialog(parent),ui(new Ui::frmContribuicao){
     ui->setupUi(this);
-    this->morador = _morador;
-    logica = Logica::Contribuicao( );
+    logica = Logica::Contribuicao( _morador );
 
     conectar( ui->btnConfirmar );
 
@@ -12,17 +11,20 @@ frmContribuicao::frmContribuicao( Logica::Morador* _morador, QWidget *parent) : 
 }
 
 void frmContribuicao::aceitado(){
-    morador->addContribuicao( logica.getTotalInserido() );
+    logica.concluir();
 }
 
 void frmContribuicao::carregarTabela(){
-    ui->tblValores->clearContents();
-    ui->tblValores->setRowCount( 0 );
-
+    this->limparTabela();
     for( int i = 0; i < logica.getLenghtDB(); i++ ){
         this->inserirValorTabela( logica.getDadosDB( i ) ); 
     }
-}   
+} 
+
+void frmContribuicao::limparTabela(){
+    ui->tblValores->clearContents();
+    ui->tblValores->setRowCount( 0 );
+}
 
 void frmContribuicao::inserirValorLista(){
 
