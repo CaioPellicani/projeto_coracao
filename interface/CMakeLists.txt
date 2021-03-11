@@ -31,7 +31,7 @@ set(BASE_POLIMORFICA
     poliDialog.h
 )
 
-add_library(${THIS} ${FORMS} ${WIDGETS} ${BASE_POLIMORFICA})
+add_library(${THIS} SHARED ${FORMS} ${WIDGETS} ${BASE_POLIMORFICA})
 
 target_link_libraries(${THIS}
     PRIVATE Qt${QT_VERSION_MAJOR}::Widgets

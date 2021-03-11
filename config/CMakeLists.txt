@@ -19,7 +19,7 @@ set( sources
     config.h config.cpp
 )
 
-add_library(${THIS} STATIC ${sources} )
+add_library(${THIS} SHARED ${sources} )
 
 
 target_link_libraries(${THIS}

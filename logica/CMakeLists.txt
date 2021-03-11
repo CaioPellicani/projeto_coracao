@@ -26,7 +26,7 @@ set( POLI
     poliUnidade.h
 )
 
-add_library( ${THIS} STATIC ${LOG} ${POLI} )
+add_library( ${THIS} SHARED ${LOG} ${POLI} )
 
 
 target_link_libraries(${THIS}
